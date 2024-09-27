@@ -1,29 +1,16 @@
-<!-- TODO: Remove "[Template]" and amend to refer to the first author and year of the original study -->
-# [Template] STARS: Computational reproducibility of [Author] et al. [Year] <a href="https://github.com/pythonhealthdatascience"><img src="quarto_site/stars_logo_blue.png" align="right" height="120" alt="STARS" /></a>
-
-<!-- TODO: Remove these introductory paragraphs about the template -->
-**This is a template repository for assessing the computational reproducibility of simulation studies on STARS. To use this template, please select the "use this template" button and then "create a new repository".**
-
-**It has been archived on Zenodo:**
-
-> **Heather, A., Monks, T., Harper, A., Mustafee, N., & Mayne, A. (2024). Template for computational reproducibility assessments on STARS. Zenodo. <https://zenodo.org/doi/10.5281/zenodo.12168890>.**
-
-**If you are using VSCode and encounter an error rendering files containing code - e.g. "*ERROR: Not a directory (os error 20): stat '/bin/python3/'*" - this is likely because you haven't set an interpreter for that file. You can do so via Ctrl+Shift+P "Python: Select Interpreter". You can use different interpreters for different files.**
+# STARS: Computational reproducibility of Wood et al. 2021 <a href="https://github.com/pythonhealthdatascience"><img src="quarto_site/stars_logo_blue.png" align="right" height="120" alt="STARS" /></a>
 
 <!-- Status badge from GitHub action checking validity of CITATION.cff -->
 <!-- TODO: Add DOI badge once repository has been archived on Zenodo -->
-<!-- TODO: Amend the URL to your repository -->
-[![Valid CITATION.cff](https://github.com/pythonhealthdatascience/stars_reproduction_template/actions/workflows/cff_validation.yaml/badge.svg)](https://github.com/pythonhealthdatascience/stars_reproduction_template/actions/workflows/cff_validation.yaml)
+[![Valid CITATION.cff](https://github.com/pythonhealthdatascience/stars-reproduce-wood-2021/actions/workflows/cff_validation.yaml/badge.svg)](https://github.com/pythonhealthdatascience/stars-reproduce-wood-2021/actions/workflows/cff_validation.yaml)
 
 This repository forms part of work package 1 on the project STARS: Sharing Tools and Artefacts for Reproducible Simulations. It assesses the computational reproducibility of:
 
-<!-- TODO: Amend to citation for the original study -->
-> [Authors]. **[Title]**. *[Journal]* [Volume], [Edition] ([Year]). <[URL]>.
+> Wood RM, Pratt AC, Kenward C, McWilliams CJ, Booton RD, Thomas MJ, Bourdeaux CP, Vasilakis C. **The Value of Triage during Periods of Intense COVID-19 Demand: Simulation Modeling Study**. *Medical Decision Making* 41(4):393-407 (2021). <https://doi.org/10.1177/0272989X21994035>.
 
 ## Website
 
-<!-- TODO: Amend the URL to your website -->
-⭐ **[Click here to check out the website for this repository](https://pythonhealthdatascience.github.io/stars_reproduction_template/)** ⭐
+⭐ **[Click here to check out the website for this repository](https://pythonhealthdatascience.github.io/stars-reproduce-wood-2021/)** ⭐
 
 This website is created using Quarto and hosted using GitHub Pages. It shares everything from this computational reproducibility assessment.
 
