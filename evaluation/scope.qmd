@@ -4,26 +4,49 @@ echo: False
 bibliography: ../quarto_site/references.bib
 ---
 
-<!-- TODO: Remove this warning once filled out page -->
-**Please note: This is a template page and has not yet been completed**
+This page outlines the parts of the journal article (@wood_value_2021) which we will attempt to reproduce.
 
-<!-- TODO: Use skeleton to create page describing scope -->
-
-<!-- NOTE: If you do not have a license allowing you to upload and reuse images from the article, then you should describe them below, and direct the reader to a link to the article -->
-
-This page outlines the parts of the journal article which we will attempt to reproduce.
-
-All images and quotes on this page are sourced from <!-- TODO: Add citation to original study -->
+We do not have permission to upload and reuse images from the article, so please refer to the journal publication to view the figures and tables mentioned below.
 
 ## Within scope
 
 ::: {.callout-note appearance="minimal" collapse=true}
 
-## Figure X
+## Figure 4
 
-[Figure with full legend from paper]
-<!-- e.g.
-![Figure 2. "Patient state over time by unit. The patient population progresses through infection over three months (with 80% infected). The bold line shows the median results of 30 trials, and the fainter lines show the minimum and maximum from the 30 trials." @allen_simulation_2020](../original_study/article_fig2.png){width=80%}-->
+"Figure 4 Estimated numbers of deaths and life-years lost by triage strategy. Results are relative to baseline (no triage strategy)." @wood_value_2021
+
+:::
+
+::: {.callout-note appearance="minimal" collapse=true}
+
+## Table 4
+
+"Table 4 Estimated Number of Deaths and Life-Years Lost (Mean and 95% Confidence Intervals) over the Course of the Pandemic according to the Range of Demand Trajectories and Triage Strategies under Consideration." @wood_value_2021
+
+:::
+
+::: {.callout-note appearance="minimal" collapse=true}
+
+## Figure 5
+
+"Figure 5 Estimated number and type of death relative to baseline. Results provided for triage strategies with an age threshold of 60 y. Note that type 1 deaths are those resulting from declined admission, type 2 deaths are those resulting from interrupted admission, and type 3 deaths are those occurring during admission (see Figure 2)." @wood_value_2021
+
+:::
+
+::: {.callout-note appearance="minimal" collapse=true}
+
+## Figure 6
+
+"Figure 6 Estimated intensive care bed occupancy and cumulative admissions and deaths over the course of the simulated pandemic. Results provided under the lockdown demand trajectory for triage strategies with an age threshold of 60 y." @wood_value_2021
+
+:::
+
+::: {.callout-note appearance="minimal" collapse=true}
+
+## Figure 7
+
+"Figure 7 Estimated numbers of deaths and life-years lost for various levels of intensive care capacity. Results provided under the interrupt triage strategy with an age threshold of 60 y." @wood_value_2021
 
 :::
 
@@ -31,10 +54,48 @@ All images and quotes on this page are sourced from <!-- TODO: Add citation to o
 
 ::: {.callout-note appearance="minimal" collapse=true}
 
-## Table X
+## Figure 1
 
-[Explanation of why it is outside scope]
+"Figure 1 The 3 triage strategies considered in this study, in addition to the ‘‘first-come first-served’’ baseline strategy involving no prioritization based on patient age." @wood_value_2021
 
-[Display table, including full legend from paper]
+:::
+
+::: {.callout-note appearance="minimal" collapse=true}
+
+##  Figure 2
+
+"Figure 2 Types of death that may result under the various triage strategies considered in this study." @wood_value_2021
+
+:::
+
+::: {.callout-note appearance="minimal" collapse=true}
+
+## Figure 3
+
+"Figure 3 Demand trajectories for numbers requiring intensive care admission and corresponding total numbers requiring intensive care admission over simulated pandemic." @wood_value_2021
+
+:::
+
+::: {.callout-note appearance="minimal" collapse=true}
+
+## Table 1
+
+"Table 1 Estimates of Model Parameters at Patient Group Level" @wood_value_2021
+
+:::
+
+::: {.callout-note appearance="minimal" collapse=true}
+
+## Table 2
+
+"Table 2 Intensive Care Length-of-Stay Parameters at Admission Outcome Level, under the Shape-Rate Parameterization of the Gamma Distribution"
+
+:::
+
+::: {.callout-note appearance="minimal" collapse=true}
+
+## Table 3
+
+"Table 3 Summarized Provenance of Data and Information Used for Calibrating Model Parameters"
 
 :::
