@@ -1,0 +1,71 @@
+---
+title: "Day 1"
+author: "Amy Heather"
+date: "2024-09-27"
+categories: [setup, read, scope]
+bibliography: ../../../quarto_site/references.bib
+---
+
+::: {.callout-note}
+
+Set-up repository, read article and suggested scope. Total time used: 0h 58m (2.4%)
+
+:::
+
+## Previously: Contacted the authors
+
+Previously contacted Richard Wood to inform about study, and he kindly add an open license to the repository.
+
+## 10.27-10.45: Set-up repository
+
+* Created repository from template
+* Set up environment
+* Modified template files:
+    * `README.md`
+    * quarto site `index.qmd`
+    * `CITATION.cff`
+    * `_quarto.yml`
+* Set up site on GitHub pages (`quarto publish gh-pages`)
+
+## 11.28-11.46: Upload model code and article
+
+The model code is available at <https://github.com/nhs-bnssg-analytics/triage-modelling>. This is shared under a GNU GPL-3.0 license.
+
+### License
+
+From a quick look at their code repository, can see they use a GNU General Public License version 3. The [requirements of this license](https://fossa.com/blog/open-source-software-licenses-101-gpl-v3/) are to:
+
+* Include a copy of the full license
+* State all significant changes made to the software
+* Make the original source code available when distributing binaries based on that work
+* Include a copy of the original copyright notice
+
+It allows the code to be changed and distributed to others (as long as release under GPL v3 also). Hence, updated license (and references to it) to GNU GPL 3.0 accordingly.
+
+### License for article
+
+The article is published "Free Access" at <https://journals.sagepub.com/doi/10.1177/0272989X21994035>. It states that the rights and permissions are to the authors ("Rights and permissions © The Author(s) 2021.") and provides a link to [Article Reuse Guidelines](https://us.sagepub.com/en-us/nam/journals-permissions). As I've understood it, this article is "Free Access" but not "Open Access" and hence, the rules [on this webpage](https://us.sagepub.com/en-us/nam/pre-approved-permission-requests-journals) apply, and this would appear to restrict us from being unable to upload the article and images as from this journal.
+
+I searched for alternative green open-access versions and found it is also made available by the Bath Research Portal at <https://researchportal.bath.ac.uk/en/publications/the-value-of-triage-during-periods-of-intense-covid-19-demand-sim> which states "General rights Copyright and moral rights for the publications made accessible in the public portal are retained by the authors and/or other copyright owners and it is a condition of accessing publications that users recognise and abide by the legal requirements associated with these rights." Hence, it falls under the same rules.
+
+## 11.55-12.11, 13.19-13.25: Read article and supplementary materials, and proposed scope
+
+## Timings
+
+```{python}
+import sys
+sys.path.append('../')
+from timings import calculate_times
+
+# Minutes used prior to today
+used_to_date = 0
+
+# Times from today
+times = [
+    ('10.27', '10.45'),
+    ('11.28', '11.46'),
+    ('11.55', '12.11'),
+    ('13.19', '13.25')]
+
+calculate_times(used_to_date, times)
+```
