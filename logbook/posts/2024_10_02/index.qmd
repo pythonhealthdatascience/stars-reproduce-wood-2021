@@ -1,0 +1,23 @@
+---
+title: "Day 2"
+author: "Amy Heather"
+date: "2024-10-02"
+categories: [scope]
+bibliography: ../../../quarto_site/references.bib
+---
+
+::: {.callout-note}
+
+Consensus on scope. Total time used: Xh Xm (X%)
+
+:::
+
+## Untimed: Consensus on scope
+
+Emailed the scope to Tom, who responded that he was happy with it. There was one section of the Discussion he highlighted as being unsure if it was covered:
+
+"This is shown to reduce life-years lost by up to 12% from the ‘‘first-come, first-served’’ baseline, although the corresponding reduction in deaths is a modest 2.7%." @wood_value_2021
+
+But we identified that it was captured in Figure 4.
+
+## 15.38-X: Archvie repository
