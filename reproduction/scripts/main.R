@@ -2,13 +2,13 @@ rm(list=ls())
 
 library(tidyverse)
 
-setwd("xxx")
+# setwd("xxx")
 
-source("covid_triage_simr.R")
+source("scripts/covid_triage_simr.R")
 
-cases_raw=read.csv("inputs-demand.csv")
-groups_raw=read.csv("inputs-groups.csv")
-los<-read.csv("inputs-los.csv")
+cases_raw=read.csv("inputs/inputs-demand.csv")
+groups_raw=read.csv("inputs/inputs-groups.csv")
+los<-read.csv("inputs/inputs-los.csv")
 
 #cap=40                    # capacity, i.e. number of beds
 nreps=1000                                  # number of simulation replications
@@ -22,7 +22,7 @@ crit_ls[[5]]<-c(T,T,F,F,F,F)
 
 
 for (cap in seq(10,200,10)) {
-  folder_name<-paste0("zresults_",cap,"_",format(Sys.time(), "%Y_%m_%d_%H_%M_%S"))
+  folder_name<-paste0("outputs/zresults_",cap,"_",format(Sys.time(), "%Y_%m_%d_%H_%M_%S"))
   dir.create(folder_name)
   outp_agg<-data.frame(scenario=character(),policy=numeric(),policy_param=numeric(),crit=character(),metric=character(),currency=character(),value=numeric())
   outp_raw<-data.frame(scenario=character(),policy=numeric(),policy_param=numeric(),crit=character(),dates=numeric(),group=character(),metric=character(),currency=character(),value=numeric())
@@ -49,8 +49,8 @@ for (cap in seq(10,200,10)) {
       }
     }
   }
-  write.csv(outp_agg,paste0(getwd(),"/",folder_name,"/outp_agg.csv"),row.names=FALSE)
-  write.csv(outp_raw,paste0(getwd(),"/",folder_name,"/outp_raw.csv"),row.names=FALSE)
+  write.csv(outp_agg,paste0(folder_name,"/outp_agg.csv"),row.names=FALSE)
+  write.csv(outp_raw,paste0(folder_name,"/outp_raw.csv"),row.names=FALSE)
 }
 
 
