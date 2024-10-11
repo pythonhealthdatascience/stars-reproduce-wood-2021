@@ -1,8 +1,8 @@
 # STARS: Computational reproducibility of Wood et al. 2021 <a href="https://github.com/pythonhealthdatascience"><img src="quarto_site/stars_logo_blue.png" align="right" height="120" alt="STARS" /></a>
 
 <!-- Status badge from GitHub action checking validity of CITATION.cff -->
-<!-- TODO: Add DOI badge once repository has been archived on Zenodo -->
 [![Valid CITATION.cff](https://github.com/pythonhealthdatascience/stars-reproduce-wood-2021/actions/workflows/cff_validation.yaml/badge.svg)](https://github.com/pythonhealthdatascience/stars-reproduce-wood-2021/actions/workflows/cff_validation.yaml)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.13881986.svg)](https://doi.org/10.5281/zenodo.13881986)
 
 This repository forms part of work package 1 on the project STARS: Sharing Tools and Artefacts for Reproducible Simulations. It assesses the computational reproducibility of:
 
@@ -81,11 +81,9 @@ If you wish to cite this repository, please refer to the citation file `CITATION
 
 ## License
 
-<!-- TODO: Add license name and link -->
-This repository is licensed under the [license and link to file].
+This repository is licensed under a [GNU GPL-3 license](https://github.com/pythonhealthdatascience/stars-reproduce-wood-2021/blob/main/LICENSE).
 
-<!-- TODO: Add license name and link (e.g. "who also licensed their work under the [MIT License](link)") -->
-This is aligned with the original study, who [license and link to file].
+This is aligned with the original study, who [also used GPL-3](https://github.com/nhs-bnssg-analytics/triage-modelling/blob/master/LICENSE).
 
 ## Funding
 
