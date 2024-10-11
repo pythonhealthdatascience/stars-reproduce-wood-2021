@@ -22,6 +22,9 @@ crit_ls[[5]]<-c(T,T,F,F,F,F)
 
 
 for (cap in seq(10,200,10)) {
+  # Start timer
+  start.time <- Sys.time()
+
   folder_name<-paste0("outputs/zresults_",cap,"_",format(Sys.time(), "%Y_%m_%d_%H_%M_%S"))
   dir.create(folder_name)
   outp_agg<-data.frame(scenario=character(),policy=numeric(),policy_param=numeric(),crit=character(),metric=character(),currency=character(),value=numeric())
@@ -51,9 +54,11 @@ for (cap in seq(10,200,10)) {
   }
   write.csv(outp_agg,paste0(folder_name,"/outp_agg.csv"),row.names=FALSE)
   write.csv(outp_raw,paste0(folder_name,"/outp_raw.csv"),row.names=FALSE)
+
+  # Finish timer and save to file
+  end.time <- Sys.time()
+  time.taken <- end.time - start.time
+  writeLines(paste(time.taken, attr(time.taken, "units")),
+             paste0(folder_name,"/time.txt"))
 }
-
-
-
-
 
