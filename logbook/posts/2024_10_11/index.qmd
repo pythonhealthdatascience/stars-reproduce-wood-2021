@@ -1,0 +1,75 @@
+---
+title: "Day 3"
+author: "Amy Heather"
+date: "2024-10-11"
+categories: [reproduction]
+bibliography: ../../../quarto_site/references.bib
+---
+
+::: {.callout-note}
+
+X. Total time used: Xh Xm (X%)
+
+:::
+
+## 12.13-12.26: Set up environment and copy over files
+
+I created an `.RProj` in `reproduction/`, then looked to the repository and article for any packages and versions.
+
+* Supplementary material: R 3.6.0
+* Article: No mention
+* Repository: `master.R` has `library(tidyverse)` and `covid_triage_simr.R` has:
+
+```
+library(parallel)
+library(tidyr)
+library(dplyr)
+library(ggplot2)
+library(gridExtra)
+```
+
+As I have had difficulty attempting to backdate R, I will first try this in my current version of R (4.4.1) with the latest packages.
+
+I created a DESCRIPTION file with these packages:
+
+```
+Title: Computational reproducibility assessment of Wood et al. 2021
+Depends: 
+    R
+Imports:
+    parallel,
+    tidyr,
+    dplyr,
+    ggplot2,
+    gridExtra,
+    tidyverse
+```
+
+I set up the `renv`:
+
+```
+renv::init(bare=TRUE)
+renv::install()
+renv::snapshot()
+```
+
+I copied the scripts and inputs into `reproduction/`, but not the original outputs. I reorganised these into `inputs/` and `scripts/` folders.
+
+I looked over the scripts, easily identifying `master.R` (which I renamed to main) as the primary script to run, which itself uses `covid_triage_simr.R` which contains the model code. There were several scripts beginning `fig...` for creating plots from the article, it appears.
+
+## Timings
+
+```{python}
+import sys
+sys.path.append('../')
+from timings import calculate_times
+
+# Minutes used prior to today
+used_to_date = 67
+
+# Times from today
+times = [
+    ('12.13', '12.26')]
+
+calculate_times(used_to_date, times)
+```
