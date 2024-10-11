@@ -1,0 +1,10 @@
+Title: Computational reproducibility assessment of Wood et al. 2021
+Depends: 
+    R
+Imports:
+    parallel,
+    tidyr,
+    dplyr,
+    ggplot2,
+    gridExtra,
+    tidyverse
