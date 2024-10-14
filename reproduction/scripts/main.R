@@ -20,6 +20,7 @@ crit_ls[[3]]<-c(T,T,T,T,F,F)
 crit_ls[[4]]<-c(T,T,T,F,F,F)
 crit_ls[[5]]<-c(T,T,F,F,F,F)
 
+print("Entering first loop...")
 
 for (cap in seq(10,200,10)) {
   # Start timer
