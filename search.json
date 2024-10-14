@@ -462,6 +462,13 @@
     "text": "Timings for this item\n\nimport sys\nsys.path.append('../')\nfrom timings import calculate_times\n\n# Minutes used prior to today\nused_to_date = 121\n\n# Times from today\ntimes = [\n    ('09.29', '09.32'),\n    ('11.00', '11.40'),\n    ('11.47', '11.50'),\n    ('11.54', '11.57'),\n    ('12.04', '12.27'),\n    ('13.20', '13.57')]\n\ncalculate_times(used_to_date, times)\n\nTime spent today: 109m, or 1h 49m\nTotal used to date: 230m, or 3h 50m\nTime remaining: 2170m, or 36h 10m\nUsed 9.6% of 40 hours max"
   },
   {
+    "objectID": "logbook/posts/2024_10_14/index.html#untimed-git-push",
+    "href": "logbook/posts/2024_10_14/index.html#untimed-git-push",
+    "title": "Day 4",
+    "section": "Untimed: Git push",
+    "text": "Untimed: Git push\nTrying to push this, I had an error that I couldn’t push as there was a large file, even though I’d set up tracking, but this large file was pulled and beame part of a merge commit.\nI tried -\ngit reset HEAD outp_raw.csv.gz\ngit commit --amend\nAnd\ngit lfs track \"outp_raw.csv.gz\"\ngit add .gitattributes\ngit commit --amend\nBut that did not fix it. I wondered if the issue was that I hadn’t also tracked .gitattributes. Following this stack overflow post, I fixed the issue by running:\ngit lfs migrate import --include=\"outp_raw.csv.gz\"\ngit add .gitattributes outp_raw.csv.gz\ngit commit -m \"Migrate large file to Git LFS\""
+  },
+  {
     "objectID": "logbook/logbook.html",
     "href": "logbook/logbook.html",
     "title": "Logbook",

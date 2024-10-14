@@ -243,6 +243,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#timings-for-these-items" id="toc-timings-for-these-items" class="nav-link" data-scroll-target="#timings-for-these-items">Timings for these items</a></li>
   <li><a href="#fig7.r" id="toc-fig7.r" class="nav-link" data-scroll-target="#fig7.r">12.04-12.27, 13.20-13.57: <code>fig7.R</code></a></li>
   <li><a href="#timings-for-this-item" id="toc-timings-for-this-item" class="nav-link" data-scroll-target="#timings-for-this-item">Timings for this item</a></li>
+  <li><a href="#untimed-git-push" id="toc-untimed-git-push" class="nav-link" data-scroll-target="#untimed-git-push">Untimed: Git push</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/pythonhealthdatascience/stars-reproduce-wood-2021/edit/main/logbook/posts/2024_10_14/index.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/pythonhealthdatascience/stars-reproduce-wood-2021/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
@@ -297,7 +298,7 @@ git lfs pull</code></pre>
 </section>
 <section id="timings-for-these-items" class="level2">
 <h2 class="anchored" data-anchor-id="timings-for-these-items">Timings for these items</h2>
-<div id="cf8a3b71" class="cell" data-execution_count="1">
+<div id="7254750f" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sys</span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>sys.path.append(<span class="st">'../'</span>)</span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> timings <span class="im">import</span> calculate_times</span>
@@ -362,7 +363,7 @@ dat &lt;- comb_csv[order(comb_csv$cap),]</code></pre>
 </section>
 <section id="timings-for-this-item" class="level2">
 <h2 class="anchored" data-anchor-id="timings-for-this-item">Timings for this item</h2>
-<div id="55702562" class="cell" data-execution_count="2">
+<div id="ecca357e" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sys</span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>sys.path.append(<span class="st">'../'</span>)</span>
 <span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> timings <span class="im">import</span> calculate_times</span>
@@ -387,6 +388,21 @@ Time remaining: 2170m, or 36h 10m
 Used 9.6% of 40 hours max</code></pre>
 </div>
 </div>
+</section>
+<section id="untimed-git-push" class="level2">
+<h2 class="anchored" data-anchor-id="untimed-git-push">Untimed: Git push</h2>
+<p>Trying to push this, I had an error that I couldn’t push as there was a large file, even though I’d set up tracking, but this large file was pulled and beame part of a merge commit.</p>
+<p>I tried -</p>
+<pre><code>git reset HEAD outp_raw.csv.gz
+git commit --amend</code></pre>
+<p>And</p>
+<pre><code>git lfs track "outp_raw.csv.gz"
+git add .gitattributes
+git commit --amend</code></pre>
+<p>But that did not fix it. I wondered if the issue was that I hadn’t also tracked <code>.gitattributes</code>. Following <a href="https://stackoverflow.com/questions/77052450/why-am-i-unable-to-push-large-files-to-github-despite-tracking-with-git-lfs">this stack overflow post</a>, I fixed the issue by running:</p>
+<pre><code>git lfs migrate import --include="outp_raw.csv.gz"
+git add .gitattributes outp_raw.csv.gz
+git commit -m "Migrate large file to Git LFS"</code></pre>
 
 
 </section>
