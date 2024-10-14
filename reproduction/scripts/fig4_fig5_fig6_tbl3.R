@@ -1,8 +1,8 @@
 rm(list=ls())
 
-setwd("xxx")
+# setwd("xxx")
 
-folder_name<-"xxx/results/"
+folder_name<-"/outputs/zresults_20_2024_10_11_16_36_07/"
 
 
 ####################################################################################################################
@@ -29,7 +29,7 @@ outp_agg<-read.csv(paste0(getwd(),folder_name,"outp_agg.csv")) %>%
   summarise(value=sum(value)) %>%
   pivot_wider(names_from=metric,values_from=value)
 
-outp_raw<-read.csv(paste0(getwd(),folder_name,"outp_raw.csv")) %>%
+outp_raw<-readr::read_csv(paste0(getwd(),folder_name,"outp_raw.csv.gz")) %>%
   mutate(scenario=factor(scenario,levels=c("unmitigated","lockdown","cyclical"))) %>%
   mutate(crit=case_when(
     crit=="TRUE_TRUE_TRUE_TRUE_TRUE_TRUE" ~ "baseline",
@@ -126,7 +126,7 @@ table3<-table3 %>%
   arrange(scenario,policy,desc(policy_param))
 
 
-write.csv(table3,paste0(getwd(),"/table3.csv"),row.names=FALSE)
+write.csv(table3,"outputs/table3.csv",row.names=FALSE)
 
 
 ####################################################################################################################
@@ -181,11 +181,11 @@ fig4<-outp6b %>%
   ) + 
   guides(fill=guide_legend(nrow=1))
 
-pdf(paste0(getwd(),"/fig4.pdf"),width=6,height=4.5)
+pdf("outputs/fig4.pdf",width=6,height=4.5)
 fig4
 dev.off()
 
-png(paste0(getwd(),"/fig4.png"),width=6,height=4.5,units="in",res=800)
+png("outputs/fig4.png",width=6,height=4.5,units="in",res=800)
 fig4
 dev.off()
 
@@ -243,7 +243,7 @@ fig5<-outp4b %>%
   mutate(Metric=factor(Metric,levels=c("Deaths","Life-years lost"))) %>%
   mutate(value=case_when(Metric=="Deaths" ~ value,
          Metric=="Life-years lost" ~ value/ly_scaler)) %>%
-  mutate(Metric=recode(Metric,'Deaths'='Deaths','Life-years lost'=paste0("Life-years lost (÷",ly_scaler,")"))) %>%
+  mutate(Metric=recode(Metric,'Deaths'='Deaths','Life-years lost'=paste0("Life-years lost (?",ly_scaler,")"))) %>%
   ggplot(aes(x=type,y=value,fill=Metric)) +
   geom_bar(stat="identity",position="dodge",colour="black",alpha=0.6) +
   scale_fill_grey(start=0.75,end=0.2) +
@@ -259,11 +259,11 @@ fig5<-outp4b %>%
         plot.margin=unit(c(5.5, 5.5, 12, 5.5), "points")
   )
 
-pdf(paste0(getwd(),"/fig5.pdf"),width=8,height=8)
+pdf("outputs/fig5.pdf",width=8,height=8)
 fig5
 dev.off()
 
-png(paste0(getwd(),"/fig5.png"),width=8,height=8,units="in",res=800)
+png("outputs/fig5.png",width=8,height=8,units="in",res=800)
 fig5
 dev.off()
 
@@ -324,11 +324,11 @@ fig6<-s.out %>%
   ) + 
   guides(fill=guide_legend(nrow=1))
 
-pdf(paste0(getwd(),"/fig6.pdf"),width=8,height=8)
+pdf("outputs/fig6.pdf",width=8,height=8)
 fig6
 dev.off()
 
-png(paste0(getwd(),"/fig6.png"),width=8,height=8,units="in",res=800)
+png("outputs/fig6.png",width=8,height=8,units="in",res=800)
 fig6
 dev.off()
 
