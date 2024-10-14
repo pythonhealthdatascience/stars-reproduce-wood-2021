@@ -164,3 +164,30 @@ times = [
 
 calculate_times(used_to_date, times)
 ```
+
+## Untimed: Git push
+
+Trying to push this, I had an error that I couldn't push as there was a large file, even though I'd set up tracking, but this large file was pulled and beame part of a merge commit.
+
+I tried -
+
+```
+git reset HEAD outp_raw.csv.gz
+git commit --amend
+```
+
+And 
+
+```
+git lfs track "outp_raw.csv.gz"
+git add .gitattributes
+git commit --amend
+```
+
+But that did not fix it. I wondered if the issue was that I hadn't also tracked `.gitattributes`. Following [this stack overflow post](https://stackoverflow.com/questions/77052450/why-am-i-unable-to-push-large-files-to-github-despite-tracking-with-git-lfs), I fixed the issue by running:
+
+```
+git lfs migrate import --include="outp_raw.csv.gz"
+git add .gitattributes outp_raw.csv.gz
+git commit -m "Migrate large file to Git LFS"
+```
