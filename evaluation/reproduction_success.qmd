@@ -7,12 +7,9 @@ bibliography: ../quarto_site/references.bib
 <!-- TODO: Remove this warning once completed assessment -->
 **Please note: This is a template page and has not yet been completed**
 
-<!-- TODO: Use skeleton to create page describing reproduction success. If it is subjective (e.g. comparing figures), be sure to explain how you decided that the figure was now successfully reproduced or not -->
+Of the 5 items in the scope, X% (X out of X) were considered to be **successfully reproduced**.
 
-Of the X items in the scope, X% (X out of X) were considered to be **successfully reproduced**.
-
-As cited throughout, images on this page are sourced from
-<!-- Add @reference -->
+We do not have permission to upload and reuse images from the article, so please refer to the journal publication to view the figures and tables mentioned below from @wood_value_2021.
 
 ## Time-to-completion
 
@@ -24,16 +21,12 @@ from time_to_complete import process_times, success_static, success_interactive
 # List of time to complete each item
 # TODO: Change to actual items and times for this project
 time_list = [
-    [100, 'In-text result 1'],
-    [200, 'In-text result 2'],
-    [400, 'Figure 2'], # Finished work, not completed, adjust to set to NaN
-    [np.nan, 'Figure 3'],
-    [np.nan, 'Figure 4'],
-    [300, 'Figure 5'],
-    [np.nan, 'Supplementary figure'],
-    [np.nan, 'In-text result 3']]
-times_df = process_times(time_list, adjust='Figure 2')
-display(times_df)
+    [170, 'Figure 4'],
+    [170, 'Table 4'],
+    [170, 'Figure 5'],
+    [170, 'Figure 6'],
+    [230, 'Figure 7']]
+times_df = process_times(time_list)
 ```
 
 Non-interactive plot:
@@ -48,15 +41,34 @@ Interactive plot:
 success_interactive(times_df)
 ```
 
-## Figure X
+## Figure 4
 
-**Consensus: Not reproduced / Successfully reproduced**
+<!--TODO: **Consensus: Not reproduced / Successfully reproduced**-->
 
-Original (citation):
+![](../reproduction/outputs/fig4.png)
 
-<!-- Image, e.g.
-![](../original_study/fig2.jpg){width=80% fig-align="center" .lightbox} -->
+## Table 4
 
-Reproduction:
+<!--TODO: **Consensus: Not reproduced / Successfully reproduced**-->
 
-<!-- Image -->
+```{python}
+pd.read_csv('../reproduction/outputs/table3.csv')
+```
+
+## Figure 5
+
+<!--TODO: **Consensus: Not reproduced / Successfully reproduced**-->
+
+![](../reproduction/outputs/fig5.png)
+
+## Figure 6
+
+<!--TODO: **Consensus: Not reproduced / Successfully reproduced**-->
+
+![](../reproduction/outputs/fig6.png)
+
+## Figure 7
+
+<!--TODO: **Consensus: Not reproduced / Successfully reproduced**-->
+
+![](../reproduction/outputs/fig7.png)
