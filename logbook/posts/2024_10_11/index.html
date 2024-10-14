@@ -235,7 +235,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#set-up-environment-and-copy-over-files" id="toc-set-up-environment-and-copy-over-files" class="nav-link active" data-scroll-target="#set-up-environment-and-copy-over-files">12.13-12.26: Set up environment and copy over files</a></li>
+  <li><a href="#set-up-environment-and-copy-over-files" id="toc-set-up-environment-and-copy-over-files" class="nav-link active" data-scroll-target="#set-up-environment-and-copy-over-files">12.13-12.26, 12.30-12.31: Set up environment and copy over files</a></li>
+  <li><a href="#running-main.r" id="toc-running-main.r" class="nav-link" data-scroll-target="#running-main.r">13.31-13.36, 13.55-14.18, 14.34-14.46: Running <code>main.R</code></a></li>
   <li><a href="#timings" id="toc-timings" class="nav-link" data-scroll-target="#timings">Timings</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/pythonhealthdatascience/stars-reproduce-wood-2021/edit/main/logbook/posts/2024_10_11/index.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/pythonhealthdatascience/stars-reproduce-wood-2021/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
@@ -257,11 +258,11 @@ Note
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>X. Total time used: Xh Xm (X%)</p>
+<p>Set up environment, corrected file paths, add timer, understood loops, and rain <code>main.R</code> as provided. Total time used: 2h 1m (5.0%)</p>
 </div>
 </div>
 <section id="set-up-environment-and-copy-over-files" class="level2">
-<h2 class="anchored" data-anchor-id="set-up-environment-and-copy-over-files">12.13-12.26: Set up environment and copy over files</h2>
+<h2 class="anchored" data-anchor-id="set-up-environment-and-copy-over-files">12.13-12.26, 12.30-12.31: Set up environment and copy over files</h2>
 <p>I created an <code>.RProj</code> in <code>reproduction/</code>, then looked to the repository and article for any packages and versions.</p>
 <ul>
 <li>Supplementary material: R 3.6.0</li>
@@ -291,27 +292,78 @@ renv::install()
 renv::snapshot()</code></pre>
 <p>I copied the scripts and inputs into <code>reproduction/</code>, but not the original outputs. I reorganised these into <code>inputs/</code> and <code>scripts/</code> folders.</p>
 <p>I looked over the scripts, easily identifying <code>master.R</code> (which I renamed to main) as the primary script to run, which itself uses <code>covid_triage_simr.R</code> which contains the model code. There were several scripts beginning <code>fig...</code> for creating plots from the article, it appears.</p>
+<p>Then spotted <code>cowplot</code> dependency in fig <code>.R</code> scripts, which add to renv.</p>
+</section>
+<section id="running-main.r" class="level2">
+<h2 class="anchored" data-anchor-id="running-main.r">13.31-13.36, 13.55-14.18, 14.34-14.46: Running <code>main.R</code></h2>
+<p>Before running, amended the file paths (with intention of running file from the <code>reproduction/</code> folder) and commented out <code>setwd()</code> (which had been provided blank (<code>xxx</code>) for users to fill in with their path).</p>
+<p>I ran <code>main.R</code>. The article stated it should take 5 minutes per 1000 replications. I found it seemed to take a little more like 10. The output print statements appeared like this:</p>
+<pre><code>`summarise()` has grouped output by 'metric'. You can override using the `.groups` argument.
+`summarise()` has grouped output by 'dates', 'group'. You can override using the `.groups` argument.
+`summarise()` has grouped output by 'dates', 'group'. You can override using the `.groups` argument.
+Joining with `by = join_by(dates, group, metric, currency)`
+[1] completed: cyclical_1_NA_TRUE_TRUE_TRUE_TRUE_TRUE_TRUE
+`summarise()` has grouped output by 'metric'. You can override using the `.groups` argument.
+`summarise()` has grouped output by 'dates', 'group'. You can override using the `.groups` argument.
+`summarise()` has grouped output by 'dates', 'group'. You can override using the `.groups` argument.
+Joining with `by = join_by(dates, group, metric, currency)`
+[1] completed: cyclical_1_NA_TRUE_TRUE_TRUE_TRUE_TRUE_FALSE
+`summarise()` has grouped output by 'metric'. You can override using the `.groups` argument.
+`summarise()` has grouped output by 'dates', 'group'. You can override using the `.groups` argument.
+`summarise()` has grouped output by 'dates', 'group'. You can override using the `.groups` argument.
+Joining with `by = join_by(dates, group, metric, currency)`
+[1] completed: cyclical_1_NA_TRUE_TRUE_TRUE_TRUE_FALSE_FALSE</code></pre>
+<p>I was worried it might actually take a long time to run, so looked into what it was looping through (i.e.&nbsp;how many).</p>
+<p><code>for (cap in seq(10,200,10)) {</code> - loops through 20 capacities from 10 to 200, which are fed into <code>covid_simr2</code>.</p>
+<p><code>for (scenario in unique(cases_raw$scenario)) {</code> - where <code>unique(cases_raw$scenario)</code> is <code>"cyclical"    "lockdown"    "unmitigated"</code>.</p>
+<p><code>for (policy in 1:3) {</code> - loops through 1 2 3, which sets:</p>
+<ul>
+<li>Policy 1: <code>policy_param_ls&lt;-NA</code></li>
+<li>Policy 2: <code>policy_param_ls&lt;-seq(3,6,3)</code></li>
+<li>Policy 3: <code>policy_param_ls&lt;-NA</code></li>
+</ul>
+<p><code>for (policy_param in policy_param_ls) {</code> - so either looping through NA (and so only running once) or <code>seq(3,6,3)</code> which is <code>3 6</code> (with <code>policy_param</code> being an input to <code>covid_simr2</code>.). Within this, it sets <code>crit_ls1&lt;-crit_ls</code> is policy is 1, or <code>crit_ls1&lt;-crit_ls[-1]</code> if it is otherwise. <code>crit_ls</code> is a list defined at the start with a series of true/false:</p>
+<pre><code>crit_ls[[1]]&lt;-c(T,T,T,T,T,T)
+crit_ls[[2]]&lt;-c(T,T,T,T,T,F)
+crit_ls[[3]]&lt;-c(T,T,T,T,F,F)
+crit_ls[[4]]&lt;-c(T,T,T,F,F,F)
+crit_ls[[5]]&lt;-c(T,T,F,F,F,F)</code></pre>
+<p><code>for (crit in crit_ls1) {</code> then loops through <code>crit_ls1</code> and runs the model.</p>
+<p>Hence, in the 20/25 minutes or so that I got :</p>
+<pre><code>[1] completed: cyclical_1_NA_TRUE_TRUE_TRUE_TRUE_TRUE_TRUE
+[1] completed: cyclical_1_NA_TRUE_TRUE_TRUE_TRUE_TRUE_FALSE
+[1] completed: cyclical_1_NA_TRUE_TRUE_TRUE_TRUE_FALSE_FALSE</code></pre>
+<p>I had actually only completed a very small number of scenarios. I wrote those three results to <code>csv</code> using the final lines of the loop. The <code>outp_raw</code> result is very large.</p>
+<p>I decided to simply set this to run on the remote machine. Before doing so, I add some code to record and save time elapsed.</p>
+<p>I cloned it onto the machine, ran:</p>
+<pre><code>Rscript -e "renv::restore()"</code></pre>
+<p>And then:</p>
+<pre><code>Rscript -e "renv::run('scripts/main.R')"</code></pre>
 </section>
 <section id="timings" class="level2">
 <h2 class="anchored" data-anchor-id="timings">Timings</h2>
-<div id="d7d8ec67" class="cell" data-execution_count="1">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sys</span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>sys.path.append(<span class="st">'../'</span>)</span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> timings <span class="im">import</span> calculate_times</span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Minutes used prior to today</span></span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>used_to_date <span class="op">=</span> <span class="dv">67</span></span>
-<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Times from today</span></span>
-<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>times <span class="op">=</span> [</span>
-<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>    (<span class="st">'12.13'</span>, <span class="st">'12.26'</span>)]</span>
-<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>calculate_times(used_to_date, times)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="9cc91aa9" class="cell" data-execution_count="1">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sys</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>sys.path.append(<span class="st">'../'</span>)</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> timings <span class="im">import</span> calculate_times</span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Minutes used prior to today</span></span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>used_to_date <span class="op">=</span> <span class="dv">67</span></span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Times from today</span></span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>times <span class="op">=</span> [</span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a>    (<span class="st">'12.13'</span>, <span class="st">'12.26'</span>),</span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a>    (<span class="st">'12.30'</span>, <span class="st">'12.31'</span>),</span>
+<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a>    (<span class="st">'13.31'</span>, <span class="st">'13.36'</span>),</span>
+<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a>    (<span class="st">'13.55'</span>, <span class="st">'14.18'</span>),</span>
+<span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a>    (<span class="st">'14.34'</span>, <span class="st">'14.46'</span>)]</span>
+<span id="cb9-15"><a href="#cb9-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-16"><a href="#cb9-16" aria-hidden="true" tabindex="-1"></a>calculate_times(used_to_date, times)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>Time spent today: 13m, or 0h 13m
-Total used to date: 80m, or 1h 20m
-Time remaining: 2320m, or 38h 40m
-Used 3.3% of 40 hours max</code></pre>
+<pre><code>Time spent today: 54m, or 0h 54m
+Total used to date: 121m, or 2h 1m
+Time remaining: 2279m, or 37h 59m
+Used 5.0% of 40 hours max</code></pre>
 </div>
 </div>
 
