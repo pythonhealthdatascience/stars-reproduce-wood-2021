@@ -8,11 +8,11 @@ bibliography: ../../../quarto_site/references.bib
 
 ::: {.callout-note}
 
-X. Total time used: Xh Xm (X%)
+Set up environment, corrected file paths, add timer, understood loops, and rain `main.R` as provided. Total time used: 2h 1m (5.0%)
 
 :::
 
-## 12.13-12.26: Set up environment and copy over files
+## 12.13-12.26, 12.30-12.31: Set up environment and copy over files
 
 I created an `.RProj` in `reproduction/`, then looked to the repository and article for any packages and versions.
 
@@ -57,6 +57,80 @@ I copied the scripts and inputs into `reproduction/`, but not the original outpu
 
 I looked over the scripts, easily identifying `master.R` (which I renamed to main) as the primary script to run, which itself uses `covid_triage_simr.R` which contains the model code. There were several scripts beginning `fig...` for creating plots from the article, it appears.
 
+Then spotted `cowplot` dependency in fig `.R` scripts, which add to renv.
+
+## 13.31-13.36, 13.55-14.18, 14.34-14.46: Running `main.R`
+
+Before running, amended the file paths (with intention of running file from the `reproduction/` folder) and commented out `setwd()` (which had been provided blank (`xxx`) for users to fill in with their path).
+
+I ran `main.R`. The article stated it should take 5 minutes per 1000 replications. I found it seemed to take a little more like 10. The output print statements appeared like this:
+
+```
+`summarise()` has grouped output by 'metric'. You can override using the `.groups` argument.
+`summarise()` has grouped output by 'dates', 'group'. You can override using the `.groups` argument.
+`summarise()` has grouped output by 'dates', 'group'. You can override using the `.groups` argument.
+Joining with `by = join_by(dates, group, metric, currency)`
+[1] completed: cyclical_1_NA_TRUE_TRUE_TRUE_TRUE_TRUE_TRUE
+`summarise()` has grouped output by 'metric'. You can override using the `.groups` argument.
+`summarise()` has grouped output by 'dates', 'group'. You can override using the `.groups` argument.
+`summarise()` has grouped output by 'dates', 'group'. You can override using the `.groups` argument.
+Joining with `by = join_by(dates, group, metric, currency)`
+[1] completed: cyclical_1_NA_TRUE_TRUE_TRUE_TRUE_TRUE_FALSE
+`summarise()` has grouped output by 'metric'. You can override using the `.groups` argument.
+`summarise()` has grouped output by 'dates', 'group'. You can override using the `.groups` argument.
+`summarise()` has grouped output by 'dates', 'group'. You can override using the `.groups` argument.
+Joining with `by = join_by(dates, group, metric, currency)`
+[1] completed: cyclical_1_NA_TRUE_TRUE_TRUE_TRUE_FALSE_FALSE
+```
+
+I was worried it might actually take a long time to run, so looked into what it was looping through (i.e. how many).
+
+`for (cap in seq(10,200,10)) {` - loops through 20 capacities from 10 to 200, which are fed into `covid_simr2`.
+
+`for (scenario in unique(cases_raw$scenario)) {` - where `unique(cases_raw$scenario)` is `"cyclical"    "lockdown"    "unmitigated"`.
+
+`for (policy in 1:3) {` - loops through 1 2 3, which sets:
+
+* Policy 1: `policy_param_ls<-NA`
+* Policy 2: `policy_param_ls<-seq(3,6,3)`
+* Policy 3: `policy_param_ls<-NA`
+
+`for (policy_param in policy_param_ls) {` - so either looping through NA (and so only running once) or `seq(3,6,3)` which is `3 6` (with `policy_param` being an input to `covid_simr2`.). Within this, it sets `crit_ls1<-crit_ls` is policy is 1, or `crit_ls1<-crit_ls[-1]` if it is otherwise. `crit_ls` is a list defined at the start with a series of true/false:
+
+```
+crit_ls[[1]]<-c(T,T,T,T,T,T)
+crit_ls[[2]]<-c(T,T,T,T,T,F)
+crit_ls[[3]]<-c(T,T,T,T,F,F)
+crit_ls[[4]]<-c(T,T,T,F,F,F)
+crit_ls[[5]]<-c(T,T,F,F,F,F)
+```
+
+`for (crit in crit_ls1) {` then loops through `crit_ls1` and runs the model.
+
+Hence, in the 20/25 minutes or so that I got :
+
+```
+[1] completed: cyclical_1_NA_TRUE_TRUE_TRUE_TRUE_TRUE_TRUE
+[1] completed: cyclical_1_NA_TRUE_TRUE_TRUE_TRUE_TRUE_FALSE
+[1] completed: cyclical_1_NA_TRUE_TRUE_TRUE_TRUE_FALSE_FALSE
+```
+
+I had actually only completed a very small number of scenarios. I wrote those three results to `csv` using the final lines of the loop. The `outp_raw` result is very large.
+
+I decided to simply set this to run on the remote machine. Before doing so, I add some code to record and save time elapsed.
+
+I cloned it onto the machine, ran:
+
+```
+Rscript -e "renv::restore()"
+```
+
+And then:
+
+```
+Rscript -e "renv::run('scripts/main.R')"
+```
+
 ## Timings
 
 ```{python}
@@ -69,7 +143,11 @@ used_to_date = 67
 
 # Times from today
 times = [
-    ('12.13', '12.26')]
+    ('12.13', '12.26'),
+    ('12.30', '12.31'),
+    ('13.31', '13.36'),
+    ('13.55', '14.18'),
+    ('14.34', '14.46')]
 
 calculate_times(used_to_date, times)
 ```
