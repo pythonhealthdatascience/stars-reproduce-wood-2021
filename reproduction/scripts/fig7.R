@@ -2,21 +2,25 @@ library("tidyverse")
 library("ggplot2")
 library("cowplot")
 
-setwd("xxx")
-
 firstup<-function(x) {
   substr(x,1,1)<-toupper(substr(x,1,1))
   x
 }
 
-dat<-do.call("rbind",lapply(seq(10,200,10), function(x) {
-  tdat1<-read.csv(paste0(getwd(),"/final results/capacity - fig7/zresults_cap",x,"/outp_agg.csv"))
-  tdat1$cap<-x
-  tdat2<-read.csv(paste0(getwd(),"/final results/capacity - fig7/zresults_lockdown_cap",x,"/outp_agg.csv"))
-  tdat2$cap<-x
-  tdat<-rbind(tdat1,tdat2)
-  return(tdat)
-}))
+# Get list of outp_agg.csv file paths
+files <- list.files(path = "outputs", pattern = "outp_agg.csv", full.names = TRUE, recursive = TRUE)
+# Get capacity from the folder name
+capacity <- as.numeric(sapply(strsplit(files, split="_", fixed=TRUE), function(x) (x[2])))
+# Import the csv files, adding column with capacity
+csv <- lapply(seq_along(files), function(i) {
+  df <- read.csv(files[[i]])
+  df$cap <- as.numeric(capacity[i])
+  return(df)
+})
+# Combine into a single dataframe
+comb_csv <- do.call(rbind, csv)
+# Sort by capacity (as original study imported in loop of seq(10,200,10))
+dat <- comb_csv[order(comb_csv$cap),]
 
 fig7<-dat %>%
   filter(policy==3) %>%
@@ -35,7 +39,7 @@ fig7<-dat %>%
   mutate(Trajectory=firstup(as.character(Trajectory))) %>%
   mutate(Trajectory=factor(Trajectory,levels=c("Unmitigated","Lockdown","Cyclical"))) %>%
   ggplot(aes(x=cap,y=value)) +
-  geom_area(aes(fill=type),linetype=1,size=0.5,colour="black",alpha=0.6) +
+  geom_area(aes(fill=type),alpha=0.6,stat="smooth") +
   scale_fill_grey(start=0.75,end=0.25) +
   facet_grid(metric~Trajectory,scales="free") +
   geom_vline(xintercept=20,linetype="dashed",colour="darkgrey") +
@@ -54,15 +58,10 @@ fig7<-dat %>%
   guides(fill=guide_legend(nrow=1)) +
   guides(fill=guide_legend(title="Type of death"))
 
-
-pdf(paste0(getwd(),"/fig7.pdf"),width=6,height=4.5)
+pdf("outputs/fig7.pdf",width=6,height=4.5)
 fig7
 dev.off()
 
-png(paste0(getwd(),"/fig7.png"),width=6,height=4.5,units="in",res=800)
+png("outputs/fig7.png",width=6,height=4.5,units="in",res=800)
 fig7
 dev.off()
-  
-  
-
-
