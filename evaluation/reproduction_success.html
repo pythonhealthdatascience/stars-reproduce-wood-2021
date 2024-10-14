@@ -20,7 +20,27 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script><script src="../site_libs/quarto-nav/quarto-nav.js"></script>
@@ -188,7 +208,11 @@ require(['plotly'], function(Plotly) {
    
   <ul>
   <li><a href="#time-to-completion" id="toc-time-to-completion" class="nav-link active" data-scroll-target="#time-to-completion">Time-to-completion</a></li>
-  <li><a href="#figure-x" id="toc-figure-x" class="nav-link" data-scroll-target="#figure-x">Figure X</a></li>
+  <li><a href="#figure-4" id="toc-figure-4" class="nav-link" data-scroll-target="#figure-4">Figure 4</a></li>
+  <li><a href="#table-4" id="toc-table-4" class="nav-link" data-scroll-target="#table-4">Table 4</a></li>
+  <li><a href="#figure-5" id="toc-figure-5" class="nav-link" data-scroll-target="#figure-5">Figure 5</a></li>
+  <li><a href="#figure-6" id="toc-figure-6" class="nav-link" data-scroll-target="#figure-6">Figure 6</a></li>
+  <li><a href="#figure-7" id="toc-figure-7" class="nav-link" data-scroll-target="#figure-7">Figure 7</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/pythonhealthdatascience/stars-reproduce-wood-2021/edit/main/evaluation/reproduction_success.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/pythonhealthdatascience/stars-reproduce-wood-2021/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
@@ -216,161 +240,12 @@ require(['plotly'], function(Plotly) {
 
 <!-- TODO: Remove this warning once completed assessment -->
 <p><strong>Please note: This is a template page and has not yet been completed</strong></p>
-<!-- TODO: Use skeleton to create page describing reproduction success. If it is subjective (e.g. comparing figures), be sure to explain how you decided that the figure was now successfully reproduced or not -->
-<p>Of the X items in the scope, X% (X out of X) were considered to be <strong>successfully reproduced</strong>.</p>
-<p>As cited throughout, images on this page are sourced from <!-- Add @reference --></p>
+<p>Of the 5 items in the scope, X% (X out of X) were considered to be <strong>successfully reproduced</strong>.</p>
+<p>We do not have permission to upload and reuse images from the article, so please refer to the journal publication to view the figures and tables mentioned below from <span class="citation" data-cites="wood_value_2021">Wood et al. (<a href="#ref-wood_value_2021" role="doc-biblioref">2021</a>)</span>.</p>
 <section id="time-to-completion" class="level2">
 <h2 class="anchored" data-anchor-id="time-to-completion">Time-to-completion</h2>
-<div id="7effc8ed" class="cell" data-execution_count="1">
-<div class="cell-output cell-output-display">
-<div>
-
-
-<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
-<thead>
-<tr class="header">
-<th data-quarto-table-cell-role="th"></th>
-<th data-quarto-table-cell-role="th">time</th>
-<th data-quarto-table-cell-role="th">item</th>
-<th data-quarto-table-cell-role="th">ecdf</th>
-<th data-quarto-table-cell-role="th">hours</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">0</td>
-<td>0.0</td>
-<td>Start</td>
-<td>0.0</td>
-<td>0.000000</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">1</td>
-<td>100.0</td>
-<td>NaN</td>
-<td>0.0</td>
-<td>1.666667</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">2</td>
-<td>100.0</td>
-<td>In-text result 1</td>
-<td>12.5</td>
-<td>1.666667</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">3</td>
-<td>200.0</td>
-<td>NaN</td>
-<td>12.5</td>
-<td>3.333333</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">4</td>
-<td>200.0</td>
-<td>In-text result 2</td>
-<td>25.0</td>
-<td>3.333333</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">5</td>
-<td>300.0</td>
-<td>NaN</td>
-<td>25.0</td>
-<td>5.000000</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">6</td>
-<td>300.0</td>
-<td>Figure 5</td>
-<td>37.5</td>
-<td>5.000000</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">7</td>
-<td>400.0</td>
-<td>NaN</td>
-<td>37.5</td>
-<td>6.666667</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">8</td>
-<td>400.0</td>
-<td>Figure 2</td>
-<td>NaN</td>
-<td>6.666667</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">9</td>
-<td>NaN</td>
-<td>NaN</td>
-<td>NaN</td>
-<td>NaN</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">10</td>
-<td>NaN</td>
-<td>Figure 3</td>
-<td>62.5</td>
-<td>NaN</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">11</td>
-<td>NaN</td>
-<td>NaN</td>
-<td>62.5</td>
-<td>NaN</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">12</td>
-<td>NaN</td>
-<td>Figure 4</td>
-<td>75.0</td>
-<td>NaN</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">13</td>
-<td>NaN</td>
-<td>NaN</td>
-<td>75.0</td>
-<td>NaN</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">14</td>
-<td>NaN</td>
-<td>Supplementary figure</td>
-<td>87.5</td>
-<td>NaN</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">15</td>
-<td>NaN</td>
-<td>NaN</td>
-<td>87.5</td>
-<td>NaN</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">16</td>
-<td>NaN</td>
-<td>In-text result 3</td>
-<td>100.0</td>
-<td>NaN</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">17</td>
-<td>NaN</td>
-<td>NaN</td>
-<td>100.0</td>
-<td>NaN</td>
-</tr>
-</tbody>
-</table>
-
-</div>
-</div>
-</div>
 <p>Non-interactive plot:</p>
-<div id="70fb7928" class="cell" data-execution_count="2">
+<div id="ebdcd066" class="cell" data-execution_count="2">
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
@@ -380,11 +255,11 @@ require(['plotly'], function(Plotly) {
 </div>
 </div>
 <p>Interactive plot:</p>
-<div id="01b67b11" class="cell" data-execution_count="3">
+<div id="fd30f43a" class="cell" data-execution_count="3">
 <div class="cell-output cell-output-display">
-<div>                            <div id="4211fa82-3856-432b-8b3b-7ed5a09a9184" class="plotly-graph-div" style="height:525px; width:100%;"></div>            <script type="text/javascript">                require(["plotly"], function(Plotly) {                    window.PLOTLYENV=window.PLOTLYENV || {};                                    if (document.getElementById("4211fa82-3856-432b-8b3b-7ed5a09a9184")) {                    Plotly.newPlot(                        "4211fa82-3856-432b-8b3b-7ed5a09a9184",                        [{"hoverinfo":"skip","mode":"lines","x":[0.0,1.6666666666666667,1.6666666666666667,3.3333333333333335,3.3333333333333335,5.0,5.0,6.666666666666667,6.666666666666667,null,null,null,null,null,null,null,null,null],"y":[0.0,0.0,12.5,12.5,25.0,25.0,37.5,37.5,null,null,62.5,62.5,75.0,75.0,87.5,87.5,100.0,100.0],"type":"scatter"},{"hoverlabel":{"namelength":0},"hovertemplate":"%{hovertext}\u003cbr\u003eTime: %{x:.1f} hours\u003cbr\u003eCompletion: %{y:.1f}%","hovertext":["Start","In-text result 1","In-text result 2","Figure 5","Figure 2","Figure 3","Figure 4","Supplementary figure","In-text result 3"],"marker":{"color":"blue","size":6},"mode":"markers","x":[0.0,1.6666666666666667,3.3333333333333335,5.0,6.666666666666667,null,null,null,null],"y":[0.0,12.5,25.0,37.5,null,62.5,75.0,87.5,100.0],"type":"scatter"}],                        {"template":{"data":{"histogram2dcontour":[{"type":"histogram2dcontour","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"choropleth":[{"type":"choropleth","colorbar":{"outlinewidth":0,"ticks":""}}],"histogram2d":[{"type":"histogram2d","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"heatmap":[{"type":"heatmap","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"heatmapgl":[{"type":"heatmapgl","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"contourcarpet":[{"type":"contourcarpet","colorbar":{"outlinewidth":0,"ticks":""}}],"contour":[{"type":"contour","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"surface":[{"type":"surface","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"mesh3d":[{"type":"mesh3d","colorbar":{"outlinewidth":0,"ticks":""}}],"scatter":[{"fillpattern":{"fillmode":"overlay","size":10,"solidity":0.2},"type":"scatter"}],"parcoords":[{"type":"parcoords","line":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterpolargl":[{"type":"scatterpolargl","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"bar":[{"error_x":{"color":"#2a3f5f"},"error_y":{"color":"#2a3f5f"},"marker":{"line":{"color":"#E5ECF6","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"bar"}],"scattergeo":[{"type":"scattergeo","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterpolar":[{"type":"scatterpolar","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"histogram":[{"marker":{"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"histogram"}],"scattergl":[{"type":"scattergl","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatter3d":[{"type":"scatter3d","line":{"colorbar":{"outlinewidth":0,"ticks":""}},"marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scattermapbox":[{"type":"scattermapbox","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterternary":[{"type":"scatterternary","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scattercarpet":[{"type":"scattercarpet","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"carpet":[{"aaxis":{"endlinecolor":"#2a3f5f","gridcolor":"white","linecolor":"white","minorgridcolor":"white","startlinecolor":"#2a3f5f"},"baxis":{"endlinecolor":"#2a3f5f","gridcolor":"white","linecolor":"white","minorgridcolor":"white","startlinecolor":"#2a3f5f"},"type":"carpet"}],"table":[{"cells":{"fill":{"color":"#EBF0F8"},"line":{"color":"white"}},"header":{"fill":{"color":"#C8D4E3"},"line":{"color":"white"}},"type":"table"}],"barpolar":[{"marker":{"line":{"color":"#E5ECF6","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"barpolar"}],"pie":[{"automargin":true,"type":"pie"}]},"layout":{"autotypenumbers":"strict","colorway":["#636efa","#EF553B","#00cc96","#ab63fa","#FFA15A","#19d3f3","#FF6692","#B6E880","#FF97FF","#FECB52"],"font":{"color":"#2a3f5f"},"hovermode":"closest","hoverlabel":{"align":"left"},"paper_bgcolor":"white","plot_bgcolor":"#E5ECF6","polar":{"bgcolor":"#E5ECF6","angularaxis":{"gridcolor":"white","linecolor":"white","ticks":""},"radialaxis":{"gridcolor":"white","linecolor":"white","ticks":""}},"ternary":{"bgcolor":"#E5ECF6","aaxis":{"gridcolor":"white","linecolor":"white","ticks":""},"baxis":{"gridcolor":"white","linecolor":"white","ticks":""},"caxis":{"gridcolor":"white","linecolor":"white","ticks":""}},"coloraxis":{"colorbar":{"outlinewidth":0,"ticks":""}},"colorscale":{"sequential":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"sequentialminus":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"diverging":[[0,"#8e0152"],[0.1,"#c51b7d"],[0.2,"#de77ae"],[0.3,"#f1b6da"],[0.4,"#fde0ef"],[0.5,"#f7f7f7"],[0.6,"#e6f5d0"],[0.7,"#b8e186"],[0.8,"#7fbc41"],[0.9,"#4d9221"],[1,"#276419"]]},"xaxis":{"gridcolor":"white","linecolor":"white","ticks":"","title":{"standoff":15},"zerolinecolor":"white","automargin":true,"zerolinewidth":2},"yaxis":{"gridcolor":"white","linecolor":"white","ticks":"","title":{"standoff":15},"zerolinecolor":"white","automargin":true,"zerolinewidth":2},"scene":{"xaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2},"yaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2},"zaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2}},"shapedefaults":{"line":{"color":"#2a3f5f"}},"annotationdefaults":{"arrowcolor":"#2a3f5f","arrowhead":0,"arrowwidth":1},"geo":{"bgcolor":"white","landcolor":"#E5ECF6","subunitcolor":"white","showland":true,"showlakes":true,"lakecolor":"white"},"title":{"x":0.05},"mapbox":{"style":"light"},"margin":{"b":0,"l":0,"r":0,"t":30}}},"xaxis":{"title":{"text":"Time elapsed (hours)"},"range":[0,40],"fixedrange":true},"yaxis":{"title":{"text":"Percentage of items reproduced"},"range":[0,100],"ticksuffix":"%","fixedrange":true},"showlegend":false},                        {"displayModeBar": false, "responsive": true}                    ).then(function(){
+<div>                            <div id="b101e45e-a947-4035-89ef-42ff250b817f" class="plotly-graph-div" style="height:525px; width:100%;"></div>            <script type="text/javascript">                require(["plotly"], function(Plotly) {                    window.PLOTLYENV=window.PLOTLYENV || {};                                    if (document.getElementById("b101e45e-a947-4035-89ef-42ff250b817f")) {                    Plotly.newPlot(                        "b101e45e-a947-4035-89ef-42ff250b817f",                        [{"hoverinfo":"skip","mode":"lines","x":[0.0,2.8333333333333335,2.8333333333333335,2.8333333333333335,2.8333333333333335,2.8333333333333335,2.8333333333333335,2.8333333333333335,2.8333333333333335,3.8333333333333335,3.8333333333333335,null],"y":[0.0,0.0,20.0,20.0,40.0,40.0,60.0,60.0,80.0,80.0,100.0,100.0],"type":"scatter"},{"hoverlabel":{"namelength":0},"hovertemplate":"%{hovertext}\u003cbr\u003eTime: %{x:.1f} hours\u003cbr\u003eCompletion: %{y:.1f}%","hovertext":["Start","Figure 4","Table 4","Figure 5","Figure 6","Figure 7"],"marker":{"color":"blue","size":6},"mode":"markers","x":[0.0,2.8333333333333335,2.8333333333333335,2.8333333333333335,2.8333333333333335,3.8333333333333335],"y":[0.0,20.0,40.0,60.0,80.0,100.0],"type":"scatter"}],                        {"template":{"data":{"histogram2dcontour":[{"type":"histogram2dcontour","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"choropleth":[{"type":"choropleth","colorbar":{"outlinewidth":0,"ticks":""}}],"histogram2d":[{"type":"histogram2d","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"heatmap":[{"type":"heatmap","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"heatmapgl":[{"type":"heatmapgl","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"contourcarpet":[{"type":"contourcarpet","colorbar":{"outlinewidth":0,"ticks":""}}],"contour":[{"type":"contour","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"surface":[{"type":"surface","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"mesh3d":[{"type":"mesh3d","colorbar":{"outlinewidth":0,"ticks":""}}],"scatter":[{"fillpattern":{"fillmode":"overlay","size":10,"solidity":0.2},"type":"scatter"}],"parcoords":[{"type":"parcoords","line":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterpolargl":[{"type":"scatterpolargl","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"bar":[{"error_x":{"color":"#2a3f5f"},"error_y":{"color":"#2a3f5f"},"marker":{"line":{"color":"#E5ECF6","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"bar"}],"scattergeo":[{"type":"scattergeo","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterpolar":[{"type":"scatterpolar","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"histogram":[{"marker":{"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"histogram"}],"scattergl":[{"type":"scattergl","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatter3d":[{"type":"scatter3d","line":{"colorbar":{"outlinewidth":0,"ticks":""}},"marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scattermapbox":[{"type":"scattermapbox","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterternary":[{"type":"scatterternary","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scattercarpet":[{"type":"scattercarpet","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"carpet":[{"aaxis":{"endlinecolor":"#2a3f5f","gridcolor":"white","linecolor":"white","minorgridcolor":"white","startlinecolor":"#2a3f5f"},"baxis":{"endlinecolor":"#2a3f5f","gridcolor":"white","linecolor":"white","minorgridcolor":"white","startlinecolor":"#2a3f5f"},"type":"carpet"}],"table":[{"cells":{"fill":{"color":"#EBF0F8"},"line":{"color":"white"}},"header":{"fill":{"color":"#C8D4E3"},"line":{"color":"white"}},"type":"table"}],"barpolar":[{"marker":{"line":{"color":"#E5ECF6","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"barpolar"}],"pie":[{"automargin":true,"type":"pie"}]},"layout":{"autotypenumbers":"strict","colorway":["#636efa","#EF553B","#00cc96","#ab63fa","#FFA15A","#19d3f3","#FF6692","#B6E880","#FF97FF","#FECB52"],"font":{"color":"#2a3f5f"},"hovermode":"closest","hoverlabel":{"align":"left"},"paper_bgcolor":"white","plot_bgcolor":"#E5ECF6","polar":{"bgcolor":"#E5ECF6","angularaxis":{"gridcolor":"white","linecolor":"white","ticks":""},"radialaxis":{"gridcolor":"white","linecolor":"white","ticks":""}},"ternary":{"bgcolor":"#E5ECF6","aaxis":{"gridcolor":"white","linecolor":"white","ticks":""},"baxis":{"gridcolor":"white","linecolor":"white","ticks":""},"caxis":{"gridcolor":"white","linecolor":"white","ticks":""}},"coloraxis":{"colorbar":{"outlinewidth":0,"ticks":""}},"colorscale":{"sequential":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"sequentialminus":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"diverging":[[0,"#8e0152"],[0.1,"#c51b7d"],[0.2,"#de77ae"],[0.3,"#f1b6da"],[0.4,"#fde0ef"],[0.5,"#f7f7f7"],[0.6,"#e6f5d0"],[0.7,"#b8e186"],[0.8,"#7fbc41"],[0.9,"#4d9221"],[1,"#276419"]]},"xaxis":{"gridcolor":"white","linecolor":"white","ticks":"","title":{"standoff":15},"zerolinecolor":"white","automargin":true,"zerolinewidth":2},"yaxis":{"gridcolor":"white","linecolor":"white","ticks":"","title":{"standoff":15},"zerolinecolor":"white","automargin":true,"zerolinewidth":2},"scene":{"xaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2},"yaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2},"zaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2}},"shapedefaults":{"line":{"color":"#2a3f5f"}},"annotationdefaults":{"arrowcolor":"#2a3f5f","arrowhead":0,"arrowwidth":1},"geo":{"bgcolor":"white","landcolor":"#E5ECF6","subunitcolor":"white","showland":true,"showlakes":true,"lakecolor":"white"},"title":{"x":0.05},"mapbox":{"style":"light"},"margin":{"b":0,"l":0,"r":0,"t":30}}},"xaxis":{"title":{"text":"Time elapsed (hours)"},"range":[0,40],"fixedrange":true},"yaxis":{"title":{"text":"Percentage of items reproduced"},"range":[0,100],"ticksuffix":"%","fixedrange":true},"showlegend":false},                        {"displayModeBar": false, "responsive": true}                    ).then(function(){
                             
-var gd = document.getElementById('4211fa82-3856-432b-8b3b-7ed5a09a9184');
+var gd = document.getElementById('b101e45e-a947-4035-89ef-42ff250b817f');
 var x = new MutationObserver(function (mutations, observer) {{
         var display = window.getComputedStyle(gd).display;
         if (!display || display === 'none') {{
@@ -410,19 +285,678 @@ if (outputEl) {{
 </div>
 </div>
 </section>
-<section id="figure-x" class="level2">
-<h2 class="anchored" data-anchor-id="figure-x">Figure X</h2>
-<p><strong>Consensus: Not reproduced / Successfully reproduced</strong></p>
-<p>Original (citation):</p>
-<!-- Image, e.g.
-![](../original_study/fig2.jpg){width=80% fig-align="center" .lightbox} -->
-<p>Reproduction:</p>
-<!-- Image -->
+<section id="figure-4" class="level2">
+<h2 class="anchored" data-anchor-id="figure-4">Figure 4</h2>
+<!--TODO: **Consensus: Not reproduced / Successfully reproduced**-->
+<p><img src="../reproduction/outputs/fig4.png" class="img-fluid"></p>
+</section>
+<section id="table-4" class="level2">
+<h2 class="anchored" data-anchor-id="table-4">Table 4</h2>
+<!--TODO: **Consensus: Not reproduced / Successfully reproduced**-->
+<div id="39474c1f" class="cell" data-execution_count="4">
+<div class="cell-output cell-output-display" data-execution_count="4">
+<div>
+
+
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">scenario</th>
+<th data-quarto-table-cell-role="th">policy</th>
+<th data-quarto-table-cell-role="th">policy_param</th>
+<th data-quarto-table-cell-role="th">crit</th>
+<th data-quarto-table-cell-role="th">type1</th>
+<th data-quarto-table-cell-role="th">type2</th>
+<th data-quarto-table-cell-role="th">type3</th>
+<th data-quarto-table-cell-role="th">total</th>
+<th data-quarto-table-cell-role="th">total_ly</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>unmitigated</td>
+<td>1</td>
+<td>NaN</td>
+<td>baseline</td>
+<td>455 (131 to 1178)</td>
+<td>0 (0 to 0)</td>
+<td>54 (37 to 75)</td>
+<td>509 (180 to 1237)</td>
+<td>12968 (4504 to 31634)</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>unmitigated</td>
+<td>1</td>
+<td>NaN</td>
+<td>50</td>
+<td>+54 (49 to 61)</td>
+<td>0 (0 to 0)</td>
+<td>-39 (-50 to -30)</td>
+<td>+15 (9 to 24)</td>
+<td>-521 (-763 to -21)</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>unmitigated</td>
+<td>1</td>
+<td>NaN</td>
+<td>60</td>
+<td>+27 (23 to 27)</td>
+<td>0 (0 to 0)</td>
+<td>-25 (-33 to -20)</td>
+<td>+2 (-9 to 5)</td>
+<td>-501 (-761 to -483)</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>unmitigated</td>
+<td>1</td>
+<td>NaN</td>
+<td>70</td>
+<td>+10 (8 to 9)</td>
+<td>0 (0 to 0)</td>
+<td>-11 (-14 to -9)</td>
+<td>-1 (-5 to 2)</td>
+<td>-240 (-316 to -303)</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>unmitigated</td>
+<td>1</td>
+<td>NaN</td>
+<td>80</td>
+<td>+2 (0 to 5)</td>
+<td>0 (0 to 0)</td>
+<td>-2 (-3 to -2)</td>
+<td>+0 (-3 to -2)</td>
+<td>-41 (-229 to 6)</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">5</td>
+<td>unmitigated</td>
+<td>2</td>
+<td>6.0</td>
+<td>50</td>
+<td>+22 (22 to 24)</td>
+<td>0 (0 to 0)</td>
+<td>-22 (-30 to -16)</td>
+<td>0 (-4 to 7)</td>
+<td>-770 (-1178 to -469)</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">6</td>
+<td>unmitigated</td>
+<td>2</td>
+<td>6.0</td>
+<td>60</td>
+<td>+13 (13 to 13)</td>
+<td>0 (0 to 0)</td>
+<td>-16 (-22 to -12)</td>
+<td>-3 (-8 to 0)</td>
+<td>-540 (-641 to -436)</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">7</td>
+<td>unmitigated</td>
+<td>2</td>
+<td>6.0</td>
+<td>70</td>
+<td>+5 (-4 to 2)</td>
+<td>0 (0 to 0)</td>
+<td>-8 (-11 to -7)</td>
+<td>-3 (-6 to -5)</td>
+<td>-247 (-506 to -290)</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">8</td>
+<td>unmitigated</td>
+<td>2</td>
+<td>6.0</td>
+<td>80</td>
+<td>+1 (1 to 3)</td>
+<td>0 (0 to 0)</td>
+<td>-1 (-3 to -1)</td>
+<td>+0 (0 to 0)</td>
+<td>-34 (-59 to 136)</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">9</td>
+<td>unmitigated</td>
+<td>2</td>
+<td>3.0</td>
+<td>50</td>
+<td>+13 (10 to 11)</td>
+<td>0 (0 to 0)</td>
+<td>-17 (-23 to -14)</td>
+<td>-4 (-7 to 3)</td>
+<td>-808 (-1076 to -434)</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">10</td>
+<td>unmitigated</td>
+<td>2</td>
+<td>3.0</td>
+<td>60</td>
+<td>+8 (7 to 14)</td>
+<td>0 (0 to 0)</td>
+<td>-13 (-18 to -10)</td>
+<td>-5 (-5 to -2)</td>
+<td>-551 (-581 to -572)</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">11</td>
+<td>unmitigated</td>
+<td>2</td>
+<td>3.0</td>
+<td>70</td>
+<td>+4 (3 to 4)</td>
+<td>0 (0 to 0)</td>
+<td>-6 (-9 to -5)</td>
+<td>-3 (0 to 1)</td>
+<td>-233 (-254 to -247)</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">12</td>
+<td>unmitigated</td>
+<td>2</td>
+<td>3.0</td>
+<td>80</td>
+<td>+1 (1 to 2)</td>
+<td>0 (0 to 0)</td>
+<td>-1 (-3 to -1)</td>
+<td>0 (-2 to 1)</td>
+<td>-32 (-55 to 127)</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">13</td>
+<td>unmitigated</td>
+<td>3</td>
+<td>NaN</td>
+<td>50</td>
+<td>-43 (-58 to -32)</td>
+<td>+50 (26 to 71)</td>
+<td>-16 (-22 to -12)</td>
+<td>-10 (-16 to -7)</td>
+<td>-1070 (-1516 to -708)</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">14</td>
+<td>unmitigated</td>
+<td>3</td>
+<td>NaN</td>
+<td>60</td>
+<td>-36 (-48 to -35)</td>
+<td>+41 (26 to 58)</td>
+<td>-12 (-17 to -10)</td>
+<td>-8 (-8 to -7)</td>
+<td>-673 (-822 to -614)</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">15</td>
+<td>unmitigated</td>
+<td>3</td>
+<td>NaN</td>
+<td>70</td>
+<td>-17 (-24 to -18)</td>
+<td>+20 (11 to 30)</td>
+<td>-6 (-10 to -4)</td>
+<td>-3 (-3 to -2)</td>
+<td>-270 (-494 to -242)</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">16</td>
+<td>unmitigated</td>
+<td>3</td>
+<td>NaN</td>
+<td>80</td>
+<td>-2 (-4 to -1)</td>
+<td>+3 (0 to 7)</td>
+<td>-1 (-4 to -1)</td>
+<td>0 (-2 to 1)</td>
+<td>-48 (-227 to 90)</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">17</td>
+<td>lockdown</td>
+<td>1</td>
+<td>NaN</td>
+<td>baseline</td>
+<td>303 (49 to 888)</td>
+<td>0 (0 to 0)</td>
+<td>100 (54 to 158)</td>
+<td>403 (116 to 1014)</td>
+<td>10033 (2751 to 25817)</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">18</td>
+<td>lockdown</td>
+<td>1</td>
+<td>NaN</td>
+<td>50</td>
+<td>+136 (113 to 137)</td>
+<td>0 (0 to 0)</td>
+<td>-79 (-116 to -48)</td>
+<td>+57 (44 to 55)</td>
+<td>+316 (-848 to 988)</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">19</td>
+<td>lockdown</td>
+<td>1</td>
+<td>NaN</td>
+<td>60</td>
+<td>+65 (59 to 63)</td>
+<td>0 (0 to 0)</td>
+<td>-50 (-73 to -31)</td>
+<td>+15 (10 to 21)</td>
+<td>-555 (-1323 to 13)</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">20</td>
+<td>lockdown</td>
+<td>1</td>
+<td>NaN</td>
+<td>70</td>
+<td>+23 (18 to 24)</td>
+<td>0 (0 to 0)</td>
+<td>-21 (-30 to -15)</td>
+<td>+2 (-1 to 6)</td>
+<td>-351 (-725 to -113)</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">21</td>
+<td>lockdown</td>
+<td>1</td>
+<td>NaN</td>
+<td>80</td>
+<td>+3 (5 to 23)</td>
+<td>0 (0 to 0)</td>
+<td>-3 (-3 to -1)</td>
+<td>+1 (3 to 12)</td>
+<td>-57 (-26 to 22)</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">22</td>
+<td>lockdown</td>
+<td>2</td>
+<td>6.0</td>
+<td>50</td>
+<td>+47 (38 to 51)</td>
+<td>0 (0 to 0)</td>
+<td>-36 (-62 to -17)</td>
+<td>+11 (-1 to 14)</td>
+<td>-667 (-2201 to 45)</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">23</td>
+<td>lockdown</td>
+<td>2</td>
+<td>6.0</td>
+<td>60</td>
+<td>+27 (22 to 26)</td>
+<td>0 (0 to 0)</td>
+<td>-29 (-51 to -14)</td>
+<td>-2 (-3 to 8)</td>
+<td>-783 (-1343 to -195)</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">24</td>
+<td>lockdown</td>
+<td>2</td>
+<td>6.0</td>
+<td>70</td>
+<td>+11 (11 to 13)</td>
+<td>0 (0 to 0)</td>
+<td>-13 (-22 to -6)</td>
+<td>-2 (0 to 3)</td>
+<td>-369 (-338 to -156)</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">25</td>
+<td>lockdown</td>
+<td>2</td>
+<td>6.0</td>
+<td>80</td>
+<td>+1 (2 to 4)</td>
+<td>0 (0 to 0)</td>
+<td>-1 (-4 to 0)</td>
+<td>+0 (-1 to 4)</td>
+<td>-57 (-50 to 59)</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">26</td>
+<td>lockdown</td>
+<td>2</td>
+<td>3.0</td>
+<td>50</td>
+<td>+24 (15 to 36)</td>
+<td>0 (0 to 0)</td>
+<td>-24 (-42 to -9)</td>
+<td>+0 (-6 to 1)</td>
+<td>-839 (-1869 to -261)</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">27</td>
+<td>lockdown</td>
+<td>2</td>
+<td>3.0</td>
+<td>60</td>
+<td>+16 (12 to 21)</td>
+<td>0 (0 to 0)</td>
+<td>-21 (-38 to -11)</td>
+<td>-5 (-11 to 3)</td>
+<td>-768 (-1310 to -237)</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">28</td>
+<td>lockdown</td>
+<td>2</td>
+<td>3.0</td>
+<td>70</td>
+<td>+7 (2 to 7)</td>
+<td>0 (0 to 0)</td>
+<td>-10 (-18 to -6)</td>
+<td>-4 (-7 to -1)</td>
+<td>-373 (-485 to -319)</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">29</td>
+<td>lockdown</td>
+<td>2</td>
+<td>3.0</td>
+<td>80</td>
+<td>+1 (1 to 1)</td>
+<td>0 (0 to 0)</td>
+<td>-1 (-5 to 0)</td>
+<td>0 (0 to 5)</td>
+<td>-54 (1 to 67)</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">30</td>
+<td>lockdown</td>
+<td>3</td>
+<td>NaN</td>
+<td>50</td>
+<td>-49 (-100 to -13)</td>
+<td>+55 (9 to 123)</td>
+<td>-16 (-30 to -5)</td>
+<td>-10 (-22 to 0)</td>
+<td>-1177 (-2591 to -278)</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">31</td>
+<td>lockdown</td>
+<td>3</td>
+<td>NaN</td>
+<td>60</td>
+<td>-54 (-84 to -27)</td>
+<td>+61 (21 to 117)</td>
+<td>-19 (-33 to -10)</td>
+<td>-11 (-16 to -6)</td>
+<td>-1006 (-1613 to -470)</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">32</td>
+<td>lockdown</td>
+<td>3</td>
+<td>NaN</td>
+<td>70</td>
+<td>-29 (-42 to -16)</td>
+<td>+32 (12 to 60)</td>
+<td>-9 (-17 to -5)</td>
+<td>-6 (-8 to -1)</td>
+<td>-447 (-599 to -199)</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">33</td>
+<td>lockdown</td>
+<td>3</td>
+<td>NaN</td>
+<td>80</td>
+<td>-4 (-5 to -1)</td>
+<td>+5 (1 to 11)</td>
+<td>-1 (-2 to 0)</td>
+<td>-1 (-2 to 1)</td>
+<td>-71 (-197 to -33)</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">34</td>
+<td>cyclical</td>
+<td>1</td>
+<td>NaN</td>
+<td>baseline</td>
+<td>412 (39 to 1276)</td>
+<td>0 (0 to 0)</td>
+<td>118 (54 to 167)</td>
+<td>531 (101 to 1435)</td>
+<td>13264 (2362 to 36507)</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">35</td>
+<td>cyclical</td>
+<td>1</td>
+<td>NaN</td>
+<td>50</td>
+<td>+155 (104 to 136)</td>
+<td>0 (0 to 0)</td>
+<td>-92 (-115 to -48)</td>
+<td>+63 (22 to 52)</td>
+<td>+163 (-2339 to 996)</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">36</td>
+<td>cyclical</td>
+<td>1</td>
+<td>NaN</td>
+<td>60</td>
+<td>+72 (58 to 60)</td>
+<td>0 (0 to 0)</td>
+<td>-58 (-69 to -33)</td>
+<td>+14 (-5 to 21)</td>
+<td>-768 (-1843 to 86)</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">37</td>
+<td>cyclical</td>
+<td>1</td>
+<td>NaN</td>
+<td>70</td>
+<td>+25 (22 to 35)</td>
+<td>0 (0 to 0)</td>
+<td>-24 (-29 to -14)</td>
+<td>+1 (-2 to 7)</td>
+<td>-451 (-640 to -36)</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">38</td>
+<td>cyclical</td>
+<td>1</td>
+<td>NaN</td>
+<td>80</td>
+<td>+3 (0 to 6)</td>
+<td>0 (0 to 0)</td>
+<td>-3 (-5 to -1)</td>
+<td>+0 (0 to 1)</td>
+<td>-77 (13 to 21)</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">39</td>
+<td>cyclical</td>
+<td>2</td>
+<td>6.0</td>
+<td>50</td>
+<td>+58 (24 to 78)</td>
+<td>0 (0 to 0)</td>
+<td>-45 (-69 to -11)</td>
+<td>+13 (-10 to 9)</td>
+<td>-857 (-3036 to 6)</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">40</td>
+<td>cyclical</td>
+<td>2</td>
+<td>6.0</td>
+<td>60</td>
+<td>+33 (16 to 50)</td>
+<td>0 (0 to 0)</td>
+<td>-35 (-52 to -9)</td>
+<td>-1 (-16 to 4)</td>
+<td>-931 (-1938 to -89)</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">41</td>
+<td>cyclical</td>
+<td>2</td>
+<td>6.0</td>
+<td>70</td>
+<td>+13 (3 to 13)</td>
+<td>0 (0 to 0)</td>
+<td>-16 (-25 to -4)</td>
+<td>-3 (-12 to 0)</td>
+<td>-452 (-809 to -84)</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">42</td>
+<td>cyclical</td>
+<td>2</td>
+<td>6.0</td>
+<td>80</td>
+<td>+2 (-1 to 12)</td>
+<td>0 (0 to 0)</td>
+<td>-2 (-3 to 1)</td>
+<td>+0 (0 to 4)</td>
+<td>-59 (-39 to 151)</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">43</td>
+<td>cyclical</td>
+<td>2</td>
+<td>3.0</td>
+<td>50</td>
+<td>+29 (8 to 43)</td>
+<td>0 (0 to 0)</td>
+<td>-30 (-51 to -6)</td>
+<td>-1 (-14 to 5)</td>
+<td>-1052 (-2940 to -12)</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">44</td>
+<td>cyclical</td>
+<td>2</td>
+<td>3.0</td>
+<td>60</td>
+<td>+19 (5 to 31)</td>
+<td>0 (0 to 0)</td>
+<td>-25 (-43 to -6)</td>
+<td>-6 (-16 to 1)</td>
+<td>-930 (-1956 to -167)</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">45</td>
+<td>cyclical</td>
+<td>2</td>
+<td>3.0</td>
+<td>70</td>
+<td>+9 (2 to 13)</td>
+<td>0 (0 to 0)</td>
+<td>-13 (-24 to -3)</td>
+<td>-4 (-1 to 0)</td>
+<td>-428 (-731 to -24)</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">46</td>
+<td>cyclical</td>
+<td>2</td>
+<td>3.0</td>
+<td>80</td>
+<td>+2 (-1 to 7)</td>
+<td>0 (0 to 0)</td>
+<td>-2 (-3 to 1)</td>
+<td>0 (1 to 4)</td>
+<td>-53 (-37 to 126)</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">47</td>
+<td>cyclical</td>
+<td>3</td>
+<td>NaN</td>
+<td>50</td>
+<td>-64 (-135 to -11)</td>
+<td>+72 (6 to 167)</td>
+<td>-20 (-37 to -3)</td>
+<td>-12 (-26 to -3)</td>
+<td>-1493 (-3346 to -177)</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">48</td>
+<td>cyclical</td>
+<td>3</td>
+<td>NaN</td>
+<td>60</td>
+<td>-69 (-115 to -19)</td>
+<td>+77 (15 to 142)</td>
+<td>-22 (-39 to -4)</td>
+<td>-13 (-21 to -3)</td>
+<td>-1220 (-2083 to -281)</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">49</td>
+<td>cyclical</td>
+<td>3</td>
+<td>NaN</td>
+<td>70</td>
+<td>-35 (-54 to -18)</td>
+<td>+40 (9 to 71)</td>
+<td>-12 (-19 to -2)</td>
+<td>-7 (-3 to -1)</td>
+<td>-537 (-812 to -119)</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">50</td>
+<td>cyclical</td>
+<td>3</td>
+<td>NaN</td>
+<td>80</td>
+<td>-5 (-7 to 12)</td>
+<td>+6 (1 to 14)</td>
+<td>-2 (-4 to 0)</td>
+<td>-1 (0 to 6)</td>
+<td>-77 (13 to 25)</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+</section>
+<section id="figure-5" class="level2">
+<h2 class="anchored" data-anchor-id="figure-5">Figure 5</h2>
+<!--TODO: **Consensus: Not reproduced / Successfully reproduced**-->
+<p><img src="../reproduction/outputs/fig5.png" class="img-fluid"></p>
+</section>
+<section id="figure-6" class="level2">
+<h2 class="anchored" data-anchor-id="figure-6">Figure 6</h2>
+<!--TODO: **Consensus: Not reproduced / Successfully reproduced**-->
+<p><img src="../reproduction/outputs/fig6.png" class="img-fluid"></p>
+</section>
+<section id="figure-7" class="level2">
+<h2 class="anchored" data-anchor-id="figure-7">Figure 7</h2>
+<!--TODO: **Consensus: Not reproduced / Successfully reproduced**-->
+<p><img src="../reproduction/outputs/fig7.png" class="img-fluid"></p>
+
 
 
 </section>
 
-</main> <!-- /main -->
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
+<div id="ref-wood_value_2021" class="csl-entry" role="listitem">
+Wood, Richard M., Adrian C. Pratt, Charlie Kenward, Christopher J. McWilliams, Ross D. Booton, Matthew J. Thomas, Christopher P. Bourdeaux, and Christos Vasilakis. 2021. <span>“The <span>Value</span> of <span>Triage</span> During <span>Periods</span> of <span>Intense</span> <span>COVID</span>-19 <span>Demand</span>: <span>Simulation</span> <span>Modeling</span> <span>Study</span>.”</span> <em>Medical Decision Making</em> 41 (4): 393–407. <a href="https://doi.org/10.1177/0272989X21994035">https://doi.org/10.1177/0272989X21994035</a>.
+</div>
+</div></section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
