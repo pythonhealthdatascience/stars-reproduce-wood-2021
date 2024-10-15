@@ -169,6 +169,7 @@ ul.task-list li input[type="checkbox"] {
    
   <ul>
   <li><a href="#what-would-have-helped-facilitate-this-reproduction" id="toc-what-would-have-helped-facilitate-this-reproduction" class="nav-link active" data-scroll-target="#what-would-have-helped-facilitate-this-reproduction">What would have helped facilitate this reproduction?</a></li>
+  <li><a href="#what-did-help-facilitate-this-reproduction" id="toc-what-did-help-facilitate-this-reproduction" class="nav-link" data-scroll-target="#what-did-help-facilitate-this-reproduction">What did help facilitate this reproduction?</a></li>
   <li><a href="#full-list-of-troubleshooting-steps" id="toc-full-list-of-troubleshooting-steps" class="nav-link" data-scroll-target="#full-list-of-troubleshooting-steps">Full list of troubleshooting steps</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/pythonhealthdatascience/stars-reproduce-wood-2021/edit/main/evaluation/reflections.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/pythonhealthdatascience/stars-reproduce-wood-2021/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
@@ -195,17 +196,36 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<!-- TODO: Remove this warning once completed assessment -->
-<p><strong>Please note: This is a template page and has not yet been completed</strong></p>
 <p>This page contains reflections on the facilitators and barriers to this reproduction, as well as a full list of the troubleshooting steps taken to reproduce this work.</p>
 <section id="what-would-have-helped-facilitate-this-reproduction" class="level2">
 <h2 class="anchored" data-anchor-id="what-would-have-helped-facilitate-this-reproduction">What would have helped facilitate this reproduction?</h2>
-<!-- TODO: Add reflections. Example:
-**Provide environment (packages and versions)**
-
-* Not all packages needed will be listed in the imports (e.g. greenlet, pathlib)
-* Didn't work with latest package versions, had to backdate it for it to work
--->
+<p><strong>Provide environment (packages and versions)</strong></p>
+<ul>
+<li>Would’ve been handy to have a list of packages and versions used</li>
+</ul>
+<p><strong>Ensure provided scripts match exactly to the article</strong></p>
+<ul>
+<li>These were really, really similar with one tiny exception - it was missing the smoothing on figure 7</li>
+</ul>
+<p><strong>State full run time</strong></p>
+<ul>
+<li>The long run time wasn’t obvious from reading paper, and I got lucky that set to run over weekend on remote machine, and that it therefore had time for its 48 hour run time.</li>
+</ul>
+<p><strong>Provide comments</strong></p>
+<ul>
+<li>There were no comments anywhere in the code. I didn’t end up needing to dig into the code much as it ran pretty easily, but if I had needed to, this would have been more of an issue.</li>
+</ul>
+<p><strong>Minimise output file sizes if possible</strong></p>
+<ul>
+<li>The large file sizes for <code>outp_raw.csv</code> were difficult to work with, as it required that I compress it (<code>.csv.gz</code>) set up GitHub Large File Storage to track. Gladly only one of the twenty raw results files was needed for the analysis. If there were any way this results file could be shrinked (for example, if there’s any information not actually needed, or so on), this would be handy.</li>
+</ul>
+</section>
+<section id="what-did-help-facilitate-this-reproduction" class="level2">
+<h2 class="anchored" data-anchor-id="what-did-help-facilitate-this-reproduction">What did help facilitate this reproduction?</h2>
+<p>Followed <strong>convention</strong> of naming main script master/main, making it easy to spot that that was the run, despite no documentation.</p>
+<p>Include <strong>R scripts to generate figures and tables</strong> as they appear in the article.</p>
+<p>The R scripts generating those figures and tables are <strong>informatively named</strong> (e.g.&nbsp;<code>fig7.R</code>) and the output files likewise (e.g.&nbsp;<code>fig7.png</code>).</p>
+<p>Script is set-up in a way that you would just need to set the working directory at the top of the script, and other <strong>file paths</strong> are generated based on that.</p>
 </section>
 <section id="full-list-of-troubleshooting-steps" class="level2">
 <h2 class="anchored" data-anchor-id="full-list-of-troubleshooting-steps">Full list of troubleshooting steps</h2>
@@ -222,13 +242,32 @@ View list
 <div id="callout-1" class="callout-1-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>Troubleshooting steps are grouped by theme, and the day these occurred is given in brackets at the end of each bullet.</p>
-<!-- TODO: Add full list of troubleshooting steps. Example:
-
-### Environment
-
-* No environment file, and no versions for Python or Salabim in paper (2)
-* Dependencies based on PHC.py and package versions on or prior to 14th March 2021 (2)
--->
+<section id="environment" class="level3">
+<h3 class="anchored" data-anchor-id="environment">Environment</h3>
+<ul>
+<li>Article mentions R version (but no list of packages and their versions). (3)</li>
+<li>RE: Versions, did not attempt to back-date due to previous issues trying to do this. (3)</li>
+<li>Instead, used latest versions of R and packages. Based package imports on <code>library()</code> statements, which required checking across all the <code>.R</code> files to spot them. (3)</li>
+</ul>
+</section>
+<section id="file-paths" class="level3">
+<h3 class="anchored" data-anchor-id="file-paths">File paths</h3>
+<ul>
+<li>Amended file paths for imports and exports (as I reorganised repository). (3,4)</li>
+</ul>
+</section>
+<section id="syncing-raw-results-file" class="level3">
+<h3 class="anchored" data-anchor-id="syncing-raw-results-file">Syncing raw results file</h3>
+<ul>
+<li>The <code>outp_raw.csv</code> needed to be compressed to <code>.csv.gz</code> and set up with GitHub Large File Storage in order to sync it with GitHub and get it onto my local machine so I could process the results. (4)</li>
+</ul>
+</section>
+<section id="correction-to-figure" class="level3">
+<h3 class="anchored" data-anchor-id="correction-to-figure">Correction to figure</h3>
+<ul>
+<li>For figure 7, the provided script didn’t include smoothing of the lines. Although I could easily add this by setting <code>stat="smooth"</code> in <code>geom_area()</code>, it created a weird dip in the charts that looks like a bug (as the underlying data has no issues). I decided the removing the black outline was the simplest solution to this. (4)</li>
+</ul>
+</section>
 </div>
 </div>
 </div>

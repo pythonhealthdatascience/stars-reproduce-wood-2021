@@ -207,21 +207,21 @@
     "href": "evaluation/reproduction_report.html",
     "title": "Summary report",
     "section": "",
-    "text": "Please note: This is a template page and has not yet been completed"
+    "text": "Wood RM, Pratt AC, Kenward C, McWilliams CJ, Booton RD, Thomas MJ, Bourdeaux CP, Vasilakis C. The Value of Triage during Periods of Intense COVID-19 Demand: Simulation Modeling Study. Medical Decision Making 41(4):393-407 (2021). https://doi.org/10.1177/0272989X21994035.\n\nThis study uses discrete-event simulation to explore the deaths and life years lost under different triage strategies for an intensive care unit, relative to a baseline strategy. The unit is modelled with 20 beds (varied from 10 to 200 in sensitivity analyses). Three different triage strategies are explored, under three different projected demand trajectories."
   },
   {
     "objectID": "evaluation/reproduction_report.html#study",
     "href": "evaluation/reproduction_report.html#study",
     "title": "Summary report",
-    "section": "Study",
-    "text": "Study\n\n[Authors]. [Title]. [Journal] [Volume], [Edition] ([Year]). &lt;[URL]&gt;.\n\n[Paragraph summarising model]"
+    "section": "",
+    "text": "Wood RM, Pratt AC, Kenward C, McWilliams CJ, Booton RD, Thomas MJ, Bourdeaux CP, Vasilakis C. The Value of Triage during Periods of Intense COVID-19 Demand: Simulation Modeling Study. Medical Decision Making 41(4):393-407 (2021). https://doi.org/10.1177/0272989X21994035.\n\nThis study uses discrete-event simulation to explore the deaths and life years lost under different triage strategies for an intensive care unit, relative to a baseline strategy. The unit is modelled with 20 beds (varied from 10 to 200 in sensitivity analyses). Three different triage strategies are explored, under three different projected demand trajectories."
   },
   {
     "objectID": "evaluation/reproduction_report.html#computational-reproducibility",
     "href": "evaluation/reproduction_report.html#computational-reproducibility",
     "title": "Summary report",
     "section": "Computational reproducibility",
-    "text": "Computational reproducibility\nSuccessfully reproduced X out of X (X%) of items from the scope in Xh Xm (X%).\nRequired troubleshooting:\n\n[List of required changes to code]\n\n\nItem XItem YFigure 4\n\n\n[One sentence description of item X]\n[Display side-by-side] \n\n\n[Set-up as for Item X]\n\n\n[Set-up as for Item X]"
+    "text": "Computational reproducibility\nSuccessfully reproduced 5 out of 5 (100%) of items from the scope in 3h 50m (9.6%).\nRequired troubleshooting:\n\nEnvironment - identifying required packages and creating renv\nFile paths - amending for imports and exports (although this was partly because I reorganised repository, and would always be necessary)\nSyncing raw results file - compress file and set up GitHub Large File Storage for the raw results\nCorrection to figure - add smoothing to figure 7 code\n\n\nFigure 4Table 4Figure 5Figure 6Figure 7\n\n\nCannot display original figure as do not have permission for reuse, but can view at Wood et al. (2021)\nReproduction:\n\n\n\nCannot display original figure as do not have permission for reuse, but can view at Wood et al. (2021)\nHead of reproduced table (view full table on reproduction success page):\n\n\n\n\n\n\n\n\n\nscenario\npolicy\npolicy_param\ncrit\ntype1\ntype2\ntype3\ntotal\ntotal_ly\n\n\n\n\n0\nunmitigated\n1\nNaN\nbaseline\n455 (131 to 1178)\n0 (0 to 0)\n54 (37 to 75)\n509 (180 to 1237)\n12968 (4504 to 31634)\n\n\n1\nunmitigated\n1\nNaN\n50\n+54 (49 to 61)\n0 (0 to 0)\n-39 (-50 to -30)\n+15 (9 to 24)\n-521 (-763 to -21)\n\n\n2\nunmitigated\n1\nNaN\n60\n+27 (23 to 27)\n0 (0 to 0)\n-25 (-33 to -20)\n+2 (-9 to 5)\n-501 (-761 to -483)\n\n\n3\nunmitigated\n1\nNaN\n70\n+10 (8 to 9)\n0 (0 to 0)\n-11 (-14 to -9)\n-1 (-5 to 2)\n-240 (-316 to -303)\n\n\n4\nunmitigated\n1\nNaN\n80\n+2 (0 to 5)\n0 (0 to 0)\n-2 (-3 to -2)\n+0 (-3 to -2)\n-41 (-229 to 6)\n\n\n\n\n\n\n\n\n\nCannot display original figure as do not have permission for reuse, but can view at Wood et al. (2021)\nReproduction:\n\n\n\nCannot display original figure as do not have permission for reuse, but can view at Wood et al. (2021)\nReproduction:\n\n\n\nCannot display original figure as do not have permission for reuse, but can view at Wood et al. (2021)\nReproduction:"
   },
   {
     "objectID": "evaluation/reproduction_report.html#evaluation-against-guidelines",
@@ -326,21 +326,28 @@
     "href": "evaluation/reflections.html",
     "title": "Reflections",
     "section": "",
-    "text": "Please note: This is a template page and has not yet been completed\nThis page contains reflections on the facilitators and barriers to this reproduction, as well as a full list of the troubleshooting steps taken to reproduce this work."
+    "text": "This page contains reflections on the facilitators and barriers to this reproduction, as well as a full list of the troubleshooting steps taken to reproduce this work."
   },
   {
     "objectID": "evaluation/reflections.html#what-would-have-helped-facilitate-this-reproduction",
     "href": "evaluation/reflections.html#what-would-have-helped-facilitate-this-reproduction",
     "title": "Reflections",
     "section": "What would have helped facilitate this reproduction?",
-    "text": "What would have helped facilitate this reproduction?"
+    "text": "What would have helped facilitate this reproduction?\nProvide environment (packages and versions)\n\nWould’ve been handy to have a list of packages and versions used\n\nEnsure provided scripts match exactly to the article\n\nThese were really, really similar with one tiny exception - it was missing the smoothing on figure 7\n\nState full run time\n\nThe long run time wasn’t obvious from reading paper, and I got lucky that set to run over weekend on remote machine, and that it therefore had time for its 48 hour run time.\n\nProvide comments\n\nThere were no comments anywhere in the code. I didn’t end up needing to dig into the code much as it ran pretty easily, but if I had needed to, this would have been more of an issue.\n\nMinimise output file sizes if possible\n\nThe large file sizes for outp_raw.csv were difficult to work with, as it required that I compress it (.csv.gz) set up GitHub Large File Storage to track. Gladly only one of the twenty raw results files was needed for the analysis. If there were any way this results file could be shrinked (for example, if there’s any information not actually needed, or so on), this would be handy."
+  },
+  {
+    "objectID": "evaluation/reflections.html#what-did-help-facilitate-this-reproduction",
+    "href": "evaluation/reflections.html#what-did-help-facilitate-this-reproduction",
+    "title": "Reflections",
+    "section": "What did help facilitate this reproduction?",
+    "text": "What did help facilitate this reproduction?\nFollowed convention of naming main script master/main, making it easy to spot that that was the run, despite no documentation.\nInclude R scripts to generate figures and tables as they appear in the article.\nThe R scripts generating those figures and tables are informatively named (e.g. fig7.R) and the output files likewise (e.g. fig7.png).\nScript is set-up in a way that you would just need to set the working directory at the top of the script, and other file paths are generated based on that."
   },
   {
     "objectID": "evaluation/reflections.html#full-list-of-troubleshooting-steps",
     "href": "evaluation/reflections.html#full-list-of-troubleshooting-steps",
     "title": "Reflections",
     "section": "Full list of troubleshooting steps",
-    "text": "Full list of troubleshooting steps\n\n\n\n\n\n\nView list\n\n\n\n\n\nTroubleshooting steps are grouped by theme, and the day these occurred is given in brackets at the end of each bullet."
+    "text": "Full list of troubleshooting steps\n\n\n\n\n\n\nView list\n\n\n\n\n\nTroubleshooting steps are grouped by theme, and the day these occurred is given in brackets at the end of each bullet.\n\nEnvironment\n\nArticle mentions R version (but no list of packages and their versions). (3)\nRE: Versions, did not attempt to back-date due to previous issues trying to do this. (3)\nInstead, used latest versions of R and packages. Based package imports on library() statements, which required checking across all the .R files to spot them. (3)\n\n\n\nFile paths\n\nAmended file paths for imports and exports (as I reorganised repository). (3,4)\n\n\n\nSyncing raw results file\n\nThe outp_raw.csv needed to be compressed to .csv.gz and set up with GitHub Large File Storage in order to sync it with GitHub and get it onto my local machine so I could process the results. (4)\n\n\n\nCorrection to figure\n\nFor figure 7, the provided script didn’t include smoothing of the lines. Although I could easily add this by setting stat=\"smooth\" in geom_area(), it created a weird dip in the charts that looks like a bug (as the underlying data has no issues). I decided the removing the black outline was the simplest solution to this. (4)"
   },
   {
     "objectID": "evaluation/reproduction_success.html",
