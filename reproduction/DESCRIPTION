@@ -8,4 +8,5 @@ Imports:
     ggplot2,
     gridExtra,
     tidyverse,
-    cowplot
+    cowplot,
+    testthat
