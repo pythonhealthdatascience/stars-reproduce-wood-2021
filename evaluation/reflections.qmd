@@ -2,19 +2,39 @@
 title: "Reflections"
 ---
 
-<!-- TODO: Remove this warning once completed assessment -->
-**Please note: This is a template page and has not yet been completed**
-
 This page contains reflections on the facilitators and barriers to this reproduction, as well as a full list of the troubleshooting steps taken to reproduce this work.
 
 ## What would have helped facilitate this reproduction?
 
-<!-- TODO: Add reflections. Example:
 **Provide environment (packages and versions)**
 
-* Not all packages needed will be listed in the imports (e.g. greenlet, pathlib)
-* Didn't work with latest package versions, had to backdate it for it to work
--->
+* Would've been handy to have a list of packages and versions used
+
+**Ensure provided scripts match exactly to the article**
+
+* These were really, really similar with one tiny exception - it was missing the smoothing on figure 7
+
+**State full run time**
+
+* The long run time wasn't obvious from reading paper, and I got lucky that set to run over weekend on remote machine, and that it therefore had time for its 48 hour run time.
+
+**Provide comments**
+
+* There were no comments anywhere in the code. I didn't end up needing to dig into the code much as it ran pretty easily, but if I had needed to, this would have been more of an issue.
+
+**Minimise output file sizes if possible**
+
+* The large file sizes for `outp_raw.csv` were difficult to work with, as it required that I compress it (`.csv.gz`) set up GitHub Large File Storage to track. Gladly only one of the twenty raw results files was needed for the analysis. If there were any way this results file could be shrinked (for example, if there's any information not actually needed, or so on), this would be handy.
+
+## What did help facilitate this reproduction?
+
+Followed **convention** of naming main script master/main, making it easy to spot that that was the run, despite no documentation.
+
+Include **R scripts to generate figures and tables** as they appear in the article.
+
+The R scripts generating those figures and tables are **informatively named** (e.g. `fig7.R`) and the output files likewise (e.g. `fig7.png`).
+
+Script is set-up in a way that you would just need to set the working directory at the top of the script, and other **file paths** are generated based on that.
 
 ## Full list of troubleshooting steps
 
@@ -23,12 +43,22 @@ This page contains reflections on the facilitators and barriers to this reproduc
 
 Troubleshooting steps are grouped by theme, and the day these occurred is given in brackets at the end of each bullet.
 
-<!-- TODO: Add full list of troubleshooting steps. Example:
-
 ### Environment
 
-* No environment file, and no versions for Python or Salabim in paper (2)
-* Dependencies based on PHC.py and package versions on or prior to 14th March 2021 (2)
--->
+* Article mentions R version (but no list of packages and their versions). (3)
+* RE: Versions, did not attempt to back-date due to previous issues trying to do this. (3)
+* Instead, used latest versions of R and packages. Based package imports on `library()` statements, which required checking across all the `.R` files to spot them. (3)
+
+### File paths
+
+* Amended file paths for imports and exports (as I reorganised repository). (3,4)
+
+### Syncing raw results file
+
+* The `outp_raw.csv` needed to be compressed to `.csv.gz` and set up with GitHub Large File Storage in order to sync it with GitHub and get it onto my local machine so I could process the results. (4)
+
+### Correction to figure
+
+* For figure 7, the provided script didn't include smoothing of the lines. Although I could easily add this by setting `stat="smooth"` in `geom_area()`, it created a weird dip in the charts that looks like a bug (as the underlying data has no issues). I decided the removing the black outline was the simplest solution to this. (4)
 
 :::
