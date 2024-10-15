@@ -7,9 +7,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Amy Heather">
-<meta name="dcterms.date" content="2024-10-11">
+<meta name="dcterms.date" content="2024-10-15">
 
-<title>Day 3 – Reproducing Wood et al.&nbsp;2021</title>
+<title>Day 5 – Reproducing Wood et al.&nbsp;2021</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -199,9 +199,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
-      <h1 class="title">Day 3</h1>
+      <h1 class="title">Day 5</h1>
                                 <div class="quarto-categories">
-                <div class="quarto-category">reproduction</div>
+                <div class="quarto-category">evaluation</div>
               </div>
                   </div>
   </div>
@@ -219,7 +219,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <div>
       <div class="quarto-title-meta-heading">Published</div>
       <div class="quarto-title-meta-contents">
-        <p class="date">October 11, 2024</p>
+        <p class="date">October 15, 2024</p>
       </div>
     </div>
     
@@ -235,11 +235,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#set-up-environment-and-copy-over-files" id="toc-set-up-environment-and-copy-over-files" class="nav-link active" data-scroll-target="#set-up-environment-and-copy-over-files">12.13-12.26, 12.30-12.31: Set up environment and copy over files</a></li>
-  <li><a href="#running-main.r" id="toc-running-main.r" class="nav-link" data-scroll-target="#running-main.r">13.31-13.36, 13.55-14.18, 14.34-14.46: Running <code>main.R</code></a></li>
-  <li><a href="#timings" id="toc-timings" class="nav-link" data-scroll-target="#timings">Timings</a></li>
+  <li><a href="#continuing-stress-des-evaluation" id="toc-continuing-stress-des-evaluation" class="nav-link active" data-scroll-target="#continuing-stress-des-evaluation">09.30-09.37, 10.42-10.58, 11.06-11.13, 11.17-11.43: Continuing STRESS-DES evaluation</a></li>
+  <li><a href="#ispor-sdm-evaluation" id="toc-ispor-sdm-evaluation" class="nav-link" data-scroll-target="#ispor-sdm-evaluation">12.03-12.22: ISPOR-SDM evaluation</a></li>
+  <li><a href="#timings-for-evaluation" id="toc-timings-for-evaluation" class="nav-link" data-scroll-target="#timings-for-evaluation">Timings for evaluation</a></li>
   </ul>
-<div class="toc-actions"><ul><li><a href="https://github.com/pythonhealthdatascience/stars-reproduce-wood-2021/edit/main/logbook/posts/2024_10_11/index.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/pythonhealthdatascience/stars-reproduce-wood-2021/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
+<div class="toc-actions"><ul><li><a href="https://github.com/pythonhealthdatascience/stars-reproduce-wood-2021/edit/main/logbook/posts/2024_10_15/index.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/pythonhealthdatascience/stars-reproduce-wood-2021/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content quarto-banner-title-block" id="quarto-document-content">
@@ -258,112 +258,37 @@ Note
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Set up environment, corrected file paths, add timer, understood loops, and rain <code>main.R</code> as provided. Total time used: 2h 1m (5.0%)</p>
+<p>X</p>
 </div>
 </div>
-<section id="set-up-environment-and-copy-over-files" class="level2">
-<h2 class="anchored" data-anchor-id="set-up-environment-and-copy-over-files">12.13-12.26, 12.30-12.31: Set up environment and copy over files</h2>
-<p>I created an <code>.RProj</code> in <code>reproduction/</code>, then looked to the repository and article for any packages and versions.</p>
-<ul>
-<li>Supplementary material: R 3.6.0</li>
-<li>Article: No mention</li>
-<li>Repository: <code>master.R</code> has <code>library(tidyverse)</code> and <code>covid_triage_simr.R</code> has:</li>
-</ul>
-<pre><code>library(parallel)
-library(tidyr)
-library(dplyr)
-library(ggplot2)
-library(gridExtra)</code></pre>
-<p>As I have had difficulty attempting to backdate R, I will first try this in my current version of R (4.4.1) with the latest packages.</p>
-<p>I created a DESCRIPTION file with these packages:</p>
-<pre><code>Title: Computational reproducibility assessment of Wood et al. 2021
-Depends: 
-    R
-Imports:
-    parallel,
-    tidyr,
-    dplyr,
-    ggplot2,
-    gridExtra,
-    tidyverse</code></pre>
-<p>I set up the <code>renv</code>:</p>
-<pre><code>renv::init(bare=TRUE)
-renv::install()
-renv::snapshot()</code></pre>
-<p>I copied the scripts and inputs into <code>reproduction/</code>, but not the original outputs. I reorganised these into <code>inputs/</code> and <code>scripts/</code> folders.</p>
-<p>I looked over the scripts, easily identifying <code>master.R</code> (which I renamed to main) as the primary script to run, which itself uses <code>covid_triage_simr.R</code> which contains the model code. There were several scripts beginning <code>fig...</code> for creating plots from the article, it appears.</p>
-<p>Then spotted <code>cowplot</code> dependency in fig <code>.R</code> scripts, which add to renv.</p>
+<section id="continuing-stress-des-evaluation" class="level2">
+<h2 class="anchored" data-anchor-id="continuing-stress-des-evaluation">09.30-09.37, 10.42-10.58, 11.06-11.13, 11.17-11.43: Continuing STRESS-DES evaluation</h2>
 </section>
-<section id="running-main.r" class="level2">
-<h2 class="anchored" data-anchor-id="running-main.r">13.31-13.36, 13.55-14.18, 14.34-14.46: Running <code>main.R</code></h2>
-<p>Before running, amended the file paths (with intention of running file from the <code>reproduction/</code> folder) and commented out <code>setwd()</code> (which had been provided blank (<code>xxx</code>) for users to fill in with their path).</p>
-<p>I ran <code>main.R</code>. The article stated it should take 5 minutes per 1000 replications. I found it seemed to take a little more like 10. The output print statements appeared like this:</p>
-<pre><code>`summarise()` has grouped output by 'metric'. You can override using the `.groups` argument.
-`summarise()` has grouped output by 'dates', 'group'. You can override using the `.groups` argument.
-`summarise()` has grouped output by 'dates', 'group'. You can override using the `.groups` argument.
-Joining with `by = join_by(dates, group, metric, currency)`
-[1] completed: cyclical_1_NA_TRUE_TRUE_TRUE_TRUE_TRUE_TRUE
-`summarise()` has grouped output by 'metric'. You can override using the `.groups` argument.
-`summarise()` has grouped output by 'dates', 'group'. You can override using the `.groups` argument.
-`summarise()` has grouped output by 'dates', 'group'. You can override using the `.groups` argument.
-Joining with `by = join_by(dates, group, metric, currency)`
-[1] completed: cyclical_1_NA_TRUE_TRUE_TRUE_TRUE_TRUE_FALSE
-`summarise()` has grouped output by 'metric'. You can override using the `.groups` argument.
-`summarise()` has grouped output by 'dates', 'group'. You can override using the `.groups` argument.
-`summarise()` has grouped output by 'dates', 'group'. You can override using the `.groups` argument.
-Joining with `by = join_by(dates, group, metric, currency)`
-[1] completed: cyclical_1_NA_TRUE_TRUE_TRUE_TRUE_FALSE_FALSE</code></pre>
-<p>I was worried it might actually take a long time to run, so looked into what it was looping through (i.e.&nbsp;how many).</p>
-<p><code>for (cap in seq(10,200,10)) {</code> - loops through 20 capacities from 10 to 200, which are fed into <code>covid_simr2</code>.</p>
-<p><code>for (scenario in unique(cases_raw$scenario)) {</code> - where <code>unique(cases_raw$scenario)</code> is <code>"cyclical"    "lockdown"    "unmitigated"</code>.</p>
-<p><code>for (policy in 1:3) {</code> - loops through 1 2 3, which sets:</p>
-<ul>
-<li>Policy 1: <code>policy_param_ls&lt;-NA</code></li>
-<li>Policy 2: <code>policy_param_ls&lt;-seq(3,6,3)</code></li>
-<li>Policy 3: <code>policy_param_ls&lt;-NA</code></li>
-</ul>
-<p><code>for (policy_param in policy_param_ls) {</code> - so either looping through NA (and so only running once) or <code>seq(3,6,3)</code> which is <code>3 6</code> (with <code>policy_param</code> being an input to <code>covid_simr2</code>.). Within this, it sets <code>crit_ls1&lt;-crit_ls</code> is policy is 1, or <code>crit_ls1&lt;-crit_ls[-1]</code> if it is otherwise. <code>crit_ls</code> is a list defined at the start with a series of true/false:</p>
-<pre><code>crit_ls[[1]]&lt;-c(T,T,T,T,T,T)
-crit_ls[[2]]&lt;-c(T,T,T,T,T,F)
-crit_ls[[3]]&lt;-c(T,T,T,T,F,F)
-crit_ls[[4]]&lt;-c(T,T,T,F,F,F)
-crit_ls[[5]]&lt;-c(T,T,F,F,F,F)</code></pre>
-<p><code>for (crit in crit_ls1) {</code> then loops through <code>crit_ls1</code> and runs the model.</p>
-<p>Hence, in the 20/25 minutes or so that I got :</p>
-<pre><code>[1] completed: cyclical_1_NA_TRUE_TRUE_TRUE_TRUE_TRUE_TRUE
-[1] completed: cyclical_1_NA_TRUE_TRUE_TRUE_TRUE_TRUE_FALSE
-[1] completed: cyclical_1_NA_TRUE_TRUE_TRUE_TRUE_FALSE_FALSE</code></pre>
-<p>I had actually only completed a very small number of scenarios. I wrote those three results to <code>csv</code> using the final lines of the loop. The <code>outp_raw</code> result is very large.</p>
-<p>I decided to simply set this to run on the remote machine. Before doing so, I add some code to record and save time elapsed.</p>
-<p>I cloned it onto the machine, ran:</p>
-<pre><code>Rscript -e "renv::restore()"</code></pre>
-<p>And then:</p>
-<pre><code>Rscript -e "renv::run('scripts/main.R')"</code></pre>
+<section id="ispor-sdm-evaluation" class="level2">
+<h2 class="anchored" data-anchor-id="ispor-sdm-evaluation">12.03-12.22: ISPOR-SDM evaluation</h2>
 </section>
-<section id="timings" class="level2">
-<h2 class="anchored" data-anchor-id="timings">Timings</h2>
-<div id="7f6a6481" class="cell" data-execution_count="1">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sys</span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>sys.path.append(<span class="st">'../'</span>)</span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> timings <span class="im">import</span> calculate_times</span>
-<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Minutes used prior to today</span></span>
-<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>used_to_date <span class="op">=</span> <span class="dv">67</span></span>
-<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Times from today</span></span>
-<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>times <span class="op">=</span> [</span>
-<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a>    (<span class="st">'12.13'</span>, <span class="st">'12.26'</span>),</span>
-<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a>    (<span class="st">'12.30'</span>, <span class="st">'12.31'</span>),</span>
-<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a>    (<span class="st">'13.31'</span>, <span class="st">'13.36'</span>),</span>
-<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a>    (<span class="st">'13.55'</span>, <span class="st">'14.18'</span>),</span>
-<span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a>    (<span class="st">'14.34'</span>, <span class="st">'14.46'</span>)]</span>
-<span id="cb9-15"><a href="#cb9-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-16"><a href="#cb9-16" aria-hidden="true" tabindex="-1"></a>calculate_times(used_to_date, times)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<section id="timings-for-evaluation" class="level2">
+<h2 class="anchored" data-anchor-id="timings-for-evaluation">Timings for evaluation</h2>
+<div id="6dfe1af1" class="cell" data-execution_count="1">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sys</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>sys.path.append(<span class="st">'../'</span>)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> timings <span class="im">import</span> calculate_times</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Minutes used prior to today</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>used_to_date <span class="op">=</span> <span class="dv">23</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Times from today</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>times <span class="op">=</span> [</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>    (<span class="st">'09.30'</span>, <span class="st">'09.37'</span>),</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>    (<span class="st">'10.42'</span>, <span class="st">'10.58'</span>),</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>    (<span class="st">'11.06'</span>, <span class="st">'11.13'</span>),</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>    (<span class="st">'11.17'</span>, <span class="st">'11.43'</span>),</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>    (<span class="st">'12.03'</span>, <span class="st">'12.22'</span>)]</span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>calculate_times(used_to_date, times, limit<span class="op">=</span><span class="va">False</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>Time spent today: 54m, or 0h 54m
-Total used to date: 121m, or 2h 1m
-Time remaining: 2279m, or 37h 59m
-Used 5.0% of 40 hours max</code></pre>
+<pre><code>Time spent today: 75m, or 1h 15m
+Total used to date: 98m, or 1h 38m</code></pre>
 </div>
 </div>
 
@@ -815,7 +740,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </a>
   </li>  
 </ul>
-    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/pythonhealthdatascience/stars-reproduce-wood-2021/edit/main/logbook/posts/2024_10_11/index.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/pythonhealthdatascience/stars-reproduce-wood-2021/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
+    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/pythonhealthdatascience/stars-reproduce-wood-2021/edit/main/logbook/posts/2024_10_15/index.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/pythonhealthdatascience/stars-reproduce-wood-2021/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
     <div class="nav-footer-right">
       <ul class="footer-items list-unstyled">
     <li class="nav-item compact">

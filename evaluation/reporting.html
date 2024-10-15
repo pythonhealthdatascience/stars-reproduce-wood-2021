@@ -225,14 +225,11 @@ div.csl-indent {
 <section id="stress-des" class="level2">
 <h2 class="anchored" data-anchor-id="stress-des">STRESS-DES</h2>
 <p>Of the <strong>24</strong> items in the checklist:</p>
-<!-- TODO: Add counts from evaluation -->
 <ul>
-<li><strong>X</strong> were met fully (✅)</li>
-<li><strong>X</strong> were partially met (🟡)</li>
-<li><strong>X</strong> were not met (❌)</li>
-<li><strong>X</strong> were not applicable (N/A)</li>
+<li><strong>22</strong> were met fully (✅)</li>
+<li><strong>2</strong> were partially met (🟡)</li>
 </ul>
-<!-- TODO: Fill in the table. Options are ✅ Fully, 🟡 Partially, ❌ Not met, or N/A -->
+<p>Although this is unsurprising, as they state that they used STRESS-DES when reporting and - in the paper that first describes the model that this paper built upon - they even attach the completed checklist.</p>
 <table class="caption-top table">
 <colgroup>
 <col style="width: 12%">
@@ -258,20 +255,20 @@ div.csl-indent {
 <tr class="even">
 <td>1.1 Purpose of the model</td>
 <td>Explain the background and objectives for the model</td>
-<td><!----></td>
-<td><!----></td>
+<td>✅ Fully</td>
+<td>Detailed in introduction/background e.g.&nbsp;“purpose of this study is to investigate the likely impact of various strategies for triaging admission to intensive care during the COVID-19 pandemic”<br><br><span class="citation" data-cites="wood_value_2021">Wood et al. (<a href="#ref-wood_value_2021" role="doc-biblioref">2021</a>)</span></td>
 </tr>
 <tr class="odd">
 <td>1.2 Model outputs</td>
 <td>Define all quantitative performance measures that are reported, using equations where necessary. Specify how and when they are calculated during the model run along with how any measures of error such as confidence intervals are calculated.</td>
-<td><!----></td>
-<td><!----></td>
+<td>✅ Fully</td>
+<td>In introduction/background - “The primary outcome measures are aggregate lives and life-years saved relative to the baseline involving no triage (in which patients are admitted on a first-come, first-served basis)”.”<br><br><code>Supplementary materials</code> - “Outputs are then aggregated across these replications, with central estimates (based on the mean) and confidence intervals (at the 95% level) calculated for all considered performance measures.”<br><br><span class="citation" data-cites="wood_value_2021">Wood et al. (<a href="#ref-wood_value_2021" role="doc-biblioref">2021</a>)</span></td>
 </tr>
 <tr class="even">
 <td>1.3 Experimentation aims</td>
 <td>If the model has been used for experimentation, state the objectives that it was used to investigate.<br>(A) Scenario based analysis – Provide a name and description for each scenario, providing a rationale for the choice of scenarios and ensure that item 2.3 (below) is completed.<br>(B) Design of experiments – Provide details of the overall design of the experiments with reference to performance measures and their parameters (provide further details in data below).<br>(C) Simulation Optimisation – (if appropriate) Provide full details of what is to be optimised, the parameters that were included and the algorithm(s) that was be used. Where possible provide a citation of the algorithm(s).</td>
-<td><!----></td>
-<td><!----></td>
+<td>✅ Fully</td>
+<td>The scenarios are clearly visualised in <code>Figure 1</code> and described in <code>Methods: Triage Strategies</code> - e.g.&nbsp;“The first strategy accounts for a rigid cutoff, in which no patient is admit- ted to intensive care whose age is above the considered threshold (cutoff strategy). The second strategy relaxes this constraint, to the extent that…”. Then in <code>Methods: Triage Strategies</code>, “activities were simulated for a 20-bed intensive care unit… To gauge the sensitivity to different ward sizes, modeling was also performed on ward sizes ranging from 10 to 200 beds”. Then in <code>Methods: Application</code>, e.g.&nbsp;“3 demand trajectories for intensive care admission were synthetically generated with the aim of stressing the bed base…”<br><br><span class="citation" data-cites="wood_value_2021">Wood et al. (<a href="#ref-wood_value_2021" role="doc-biblioref">2021</a>)</span></td>
 </tr>
 <tr class="odd">
 <td><strong>Logic</strong></td>
@@ -282,56 +279,56 @@ div.csl-indent {
 <tr class="even">
 <td>2.1 Base model overview diagram</td>
 <td>Describe the base model using appropriate diagrams and description. This could include one or more process flow, activity cycle or equivalent diagrams sufficient to describe the model to readers. Avoid complicated diagrams in the main text. The goal is to describe the breadth and depth of the model with respect to the system being studied.</td>
-<td><!----></td>
-<td><!----></td>
+<td>✅ Fully</td>
+<td><code>Figure 2</code></td>
 </tr>
 <tr class="odd">
 <td>2.2 Base model logic</td>
 <td>Give details of the base model logic. Give additional model logic details sufficient to communicate to the reader how the model works.</td>
-<td><!----></td>
-<td><!----></td>
+<td>✅ Fully</td>
+<td><code>Figure 2</code> and <code>Methods: Model</code></td>
 </tr>
 <tr class="even">
 <td>2.3 Scenario logic</td>
 <td>Give details of the logical difference between the base case model and scenarios (if any). This could be incorporated as text or where differences are substantial could be incorporated in the same manner as 2.2.</td>
-<td><!----></td>
-<td><!----></td>
+<td>✅ Fully</td>
+<td><code>Figure 1</code> and <code>Methods: Triage Strategies</code></td>
 </tr>
 <tr class="odd">
 <td>2.4 Algorithms</td>
 <td>Provide further detail on any algorithms in the model that (for example) mimic complex or manual processes in the real world (i.e.&nbsp;scheduling of arrivals/ appointments/ operations/ maintenance, operation of a conveyor system, machine breakdowns, etc.). Sufficient detail should be included (or referred to in other published work) for the algorithms to be reproducible. Pseudo-code may be used to describe an algorithm.</td>
-<td><!----></td>
-<td><!----></td>
+<td>✅ Fully</td>
+<td><code>Methods: Application</code> - e.g.&nbsp;“Demand for intensive care admission was generated using a Susceptible-Exposed-Infected-Recovered compartmental model41 developed for use within the COVID-19 setting…” - and <code>Table 2</code><br><br><span class="citation" data-cites="wood_value_2021">Wood et al. (<a href="#ref-wood_value_2021" role="doc-biblioref">2021</a>)</span></td>
 </tr>
 <tr class="even">
 <td>2.5.1 Components - entities</td>
 <td>Give details of all entities within the simulation including a description of their role in the model and a description of all their attributes.</td>
-<td><!----></td>
-<td><!----></td>
+<td>✅ Fully</td>
+<td>Patients with an age - as mentioned in <code>Methods: Application</code>, “Patient groups are defined by the 6 age brackets provided in the weekly reports published by the Intensive Care National Audit and Research Centre (ICNARC)” and given in <code>Table 1</code><br><br><span class="citation" data-cites="wood_value_2021">Wood et al. (<a href="#ref-wood_value_2021" role="doc-biblioref">2021</a>)</span></td>
 </tr>
 <tr class="odd">
 <td>2.5.2 Components - activities</td>
 <td>Describe the activities that entities engage in within the model. Provide details of entity routing into and out of the activity.</td>
-<td><!----></td>
-<td><!----></td>
+<td>✅ Fully</td>
+<td>Evident in <code>Figure 2</code> - admission (which can be accepted, declined, or interrupted)</td>
 </tr>
 <tr class="even">
 <td>2.5.3 Components - resources</td>
 <td>List all the resources included within the model and which activities make use of them.</td>
-<td><!----></td>
-<td><!----></td>
+<td>✅ Fully</td>
+<td>Implicit in <code>Methods: Triage Strategies</code>, with activity being admission, and resource being bed - “patients are admit- ted provided there is at least a certain number of beds”<br><br><span class="citation" data-cites="wood_value_2021">Wood et al. (<a href="#ref-wood_value_2021" role="doc-biblioref">2021</a>)</span></td>
 </tr>
 <tr class="odd">
 <td>2.5.4 Components - queues</td>
 <td>Give details of the assumed queuing discipline used in the model (e.g.&nbsp;First in First Out, Last in First Out, prioritisation, etc.). Where one or more queues have a different discipline from the rest, provide a list of queues, indicating the queuing discipline used for each. If reneging, balking or jockeying occur, etc., provide details of the rules. Detail any delays or capacity constraints on the queues.</td>
-<td><!----></td>
-<td><!----></td>
+<td>✅ Fully</td>
+<td>As in <code>Methods</code>, “the modeled queue discipline from the originally assumed ‘first-come, first-served’ to allow for the 3 triage strategies outlined in the ‘Triage Strategies’ section.”… and these are then described in <code>Methods: Triage Strategies</code>.<br><br><span class="citation" data-cites="wood_value_2021">Wood et al. (<a href="#ref-wood_value_2021" role="doc-biblioref">2021</a>)</span></td>
 </tr>
 <tr class="even">
 <td>2.5.5 Components - entry/exit points</td>
 <td>Give details of the model boundaries i.e.&nbsp;all arrival and exit points of entities. Detail the arrival mechanism (e.g.&nbsp;‘thinning’ to mimic a non-homogenous Poisson process or balking)</td>
-<td><!----></td>
-<td><!----></td>
+<td>✅ Fully</td>
+<td>Evident in <code>Figure 1</code> and <code>Figure 2</code>.</td>
 </tr>
 <tr class="odd">
 <td><strong>Data</strong></td>
@@ -342,26 +339,26 @@ div.csl-indent {
 <tr class="even">
 <td>3.1 Data sources</td>
 <td>List and detail all data sources. Sources may include:<br>• Interviews with stakeholders,<br>• Samples of routinely collected data,<br>• Prospectively collected samples for the purpose of the simulation study,<br>• Public domain data published in either academic or organisational literature. Provide, where possible, the link and DOI to the data or reference to published literature.<br>All data source descriptions should include details of the sample size, sample date ranges and use within the study.</td>
-<td><!----></td>
-<td><!----></td>
+<td>✅ Fully</td>
+<td>Described in <code>Methods</code>, <code>Table 3</code> and <code>Supplementary Materials</code> - e.g.&nbsp;“Patient groups are defined by the 6 age brackets provided in the weekly reports published by the Intensive Care National Audit and Research Centre (ICNARC; https://www.icnarc.org)”… “number of life-years remaining was calculated as the sex-weighted mean value for each age group using UK national life tables pub- lished by the Office for National Statistics”<br><br><span class="citation" data-cites="wood_value_2021">Wood et al. (<a href="#ref-wood_value_2021" role="doc-biblioref">2021</a>)</span></td>
 </tr>
 <tr class="odd">
 <td>3.2 Pre-processing</td>
 <td>Provide details of any data manipulation that has taken place before its use in the simulation, e.g.&nbsp;interpolation to account for missing data or the removal of outliers.</td>
-<td><!----></td>
-<td><!----></td>
+<td>✅ Fully</td>
+<td>Described in <code>Methods: Application</code> - e.g.&nbsp;generating demand trajectories using the Susceptible-Exposed-Infected-Recovered model as described in <code>Figure 3</code>, and e.g.&nbsp;description ofhow data from different sources is used, like the deduced median and interquartile range used to approprixmate distributions of lengths of stay.<br><br>Further supported by descriptions in the STRESS-DES checklist in the <code>Supplementary Materials</code> of <span class="citation" data-cites="wood_covid-19_2020">Wood et al. (<a href="#ref-wood_covid-19_2020" role="doc-biblioref">2020</a>)</span> (paper with model that Wood et al.&nbsp;2021 built upon).</td>
 </tr>
 <tr class="even">
 <td>3.3 Input parameters</td>
 <td>List all input variables in the model. Provide a description of their use and include parameter values. For stochastic inputs provide details of any continuous, discrete or empirical distributions used along with all associated parameters. Give details of all time dependent parameters and correlation.<br>Clearly state:<br>• Base case data<br>• Data use in experimentation, where different from the base case.<br>• Where optimisation or design of experiments has been used, state the range of values that parameters can take.<br>• Where theoretical distributions are used, state how these were selected and prioritised above other candidate distributions.</td>
-<td><!----></td>
-<td><!----></td>
+<td>✅ Fully</td>
+<td><code>Table 1</code>, <code>Table 2</code>, <code>Table 3</code>, and other/supporting descriptions in <code>Methods</code> and <code>Supplementary Materials</code>.</td>
 </tr>
 <tr class="odd">
 <td>3.4 Assumptions</td>
 <td>Where data or knowledge of the real system is unavailable what assumptions are included in the model? This might include parameter values, distributions or routing logic within the model.</td>
-<td><!----></td>
-<td><!----></td>
+<td>✅ Fully</td>
+<td>Mentioned throughout paper - e.g.&nbsp;“The probability that a patient will die if not admitted to inten- sive care was assumed uniform across all patient groups…”, “It was assumed—in absence of available data— that patients discharged prematurely, at any number of days postadmission, had the same probability of death…”, “A key assumption of the interrupt strategy has been that a patient may be prematurely discharged at any number of days after admission…”<br><br><span class="citation" data-cites="wood_value_2021">Wood et al. (<a href="#ref-wood_value_2021" role="doc-biblioref">2021</a>)</span></td>
 </tr>
 <tr class="even">
 <td><strong>Experimentation</strong></td>
@@ -372,20 +369,20 @@ div.csl-indent {
 <tr class="odd">
 <td>4.1 Initialisation</td>
 <td>Report if the system modelled is terminating or non-terminating. State if a warm-up period has been used, its length and the analysis method used to select it. For terminating systems state the stopping condition.<br>State what if any initial model conditions have been included, e.g., pre-loaded queues and activities. Report whether initialisation of these variables is deterministic or stochastic.</td>
-<td><!----></td>
-<td><!----></td>
+<td>✅ Fully</td>
+<td>Couldn’t spot mention in this paper, but it does state in the paper and supplementary materials that this is based on a previous model (and then describes the specific modifications made from that model). As such, in line with previous evaluations (where we have assumed the information can be provided in an earlier paper, as long as they would not have changed in the current paper), I checked the prior paper for this detail, and it does state: “events are iterated in line with the three-phased method until some terminating criterion is met. Here, this is given by the time at which some outcome has been reached for all simulated admissions for the given epidemic curve (for cases requiring intensive care admission), i.e.&nbsp;each sought admission has been either rejected or admitted and discharged or died (event types c-f)”<br><br><span class="citation" data-cites="wood_covid-19_2020">Wood et al. (<a href="#ref-wood_covid-19_2020" role="doc-biblioref">2020</a>)</span></td>
 </tr>
 <tr class="even">
 <td>4.2 Run length</td>
 <td>Detail the run length of the simulation model and time units.</td>
-<td><!----></td>
-<td><!----></td>
+<td>✅ Fully</td>
+<td>As stated in the STRESS-DES checklist in the <code>Supplementary Materials</code> of <span class="citation" data-cites="wood_covid-19_2020">Wood et al. (<a href="#ref-wood_covid-19_2020" role="doc-biblioref">2020</a>)</span> (paper with model that Wood et al.&nbsp;2021 built upon), “Determined by the stopping condition outlined in 4.1 of this checklist.”</td>
 </tr>
 <tr class="odd">
 <td>4.3 Estimation approach</td>
 <td>State the method used to account for the stochasticity: For example, two common methods are multiple replications or batch means. Where multiple replications have been used, state the number of replications and for batch means, indicate the batch length and whether the batch means procedure is standard, spaced or overlapping. For both procedures provide a justification for the methods used and the number of replications/size of batches.</td>
-<td><!----></td>
-<td><!----></td>
+<td>✅ Fully</td>
+<td><code>Supplementary materials</code> - 1000 replications. This is justified in prior paper in <code>2.4 Simulation</code>: “This number of replications was selected based on the resulting reduction of simulation error to magnitudes deemed sufficiently negligible (&lt;0.25%) when assessed against the output measures of interest (this was performed using different seeds for which the random number streams were drawn for each replication within the simulations considered).”<br><br><span class="citation" data-cites="wood_covid-19_2020">Wood et al. (<a href="#ref-wood_covid-19_2020" role="doc-biblioref">2020</a>)</span></td>
 </tr>
 <tr class="even">
 <td><strong>Implementation</strong></td>
@@ -396,26 +393,26 @@ div.csl-indent {
 <tr class="odd">
 <td>5.1 Software or programming language</td>
 <td>State the operating system and version and build number.<br>State the name, version and build number of commercial or open source DES software that the model is implemented in.<br>State the name and version of general-purpose programming languages used (e.g.&nbsp;Python 3.5).<br>Where frameworks and libraries have been used provide all details including version numbers.</td>
-<td><!----></td>
-<td><!----></td>
+<td>🟡 Partially</td>
+<td><code>Supplementary materials</code> - “All simulations were performed on a Windows 10 desktop computer using 64-bit R version 3.6.0.<br><br>Doesn’t given libraries and their versions.<br><br><span class="citation" data-cites="wood_value_2021">Wood et al. (<a href="#ref-wood_value_2021" role="doc-biblioref">2021</a>)</span></td>
 </tr>
 <tr class="even">
 <td>5.2 Random sampling</td>
 <td>State the algorithm used to generate random samples in the software/programming language used e.g.&nbsp;Mersenne Twister.<br>If common random numbers are used, state how seeds (or random number streams) are distributed among sampling processes.</td>
-<td><!----></td>
-<td><!----></td>
+<td>✅ Fully</td>
+<td><code>Supplementary Materials</code>: “In order to appreciate the many other possibilities a number of ‘replications’ are performed, each drawing upon different random number streams for sampling the various probabilities and lengths of stay.”<br><br><span class="citation" data-cites="wood_value_2021">Wood et al. (<a href="#ref-wood_value_2021" role="doc-biblioref">2021</a>)</span> <br><br>Further supported by descriptions in the STRESS-DES checklist in the <code>Supplementary Materials</code> of <span class="citation" data-cites="wood_covid-19_2020">Wood et al. (<a href="#ref-wood_covid-19_2020" role="doc-biblioref">2020</a>)</span> - “Uses the inbuilt random number generator in R. Each replication uses a different seed call to this function.”</td>
 </tr>
 <tr class="odd">
 <td>5.3 Model execution</td>
 <td>State the event processing mechanism used e.g.&nbsp;three phase, event, activity, process interaction.<br><em>Note that in some commercial software the event processing mechanism may not be published. In these cases authors should adhere to item 5.1 software recommendations.</em><br>State all priority rules included if entities/activities compete for resources.<br>If the model is parallel, distributed and/or use grid or cloud computing, etc., state and preferably reference the technology used. For parallel and distributed simulations the time management algorithms used. If the HLA is used then state the version of the standard, which run-time infrastructure (and version), and any supporting documents (FOMs, etc.)</td>
-<td><!----></td>
-<td><!----></td>
+<td>✅ Fully</td>
+<td>Three phase, described in detail in <code>2.1 Model</code> and STRESS-DES checklist in supplementary materials of <span class="citation" data-cites="wood_covid-19_2020">Wood et al. (<a href="#ref-wood_covid-19_2020" role="doc-biblioref">2020</a>)</span></td>
 </tr>
 <tr class="even">
 <td>5.4 System specification</td>
 <td>State the model run time and specification of hardware used. This is particularly important for large scale models that require substantial computing power. For parallel, distributed and/or use grid or cloud computing, etc. state the details of all systems used in the implementation (processors, network, etc.)</td>
-<td><!----></td>
-<td><!----></td>
+<td>🟡 Partially</td>
+<td>Stated run time in this paper and prior, and explains why hardware is not relevant in prior - “Processing time is insubstantial, typically taking less than five minutes for each scenario evaluated on a desktop computer (note that scenarios with larger projections of number of admissions than those considered here take longer due to more “discrete events” taking place). Computational constraints are on processing time and not computer memory.” (<span class="citation" data-cites="wood_covid-19_2020">Wood et al. (<a href="#ref-wood_covid-19_2020" role="doc-biblioref">2020</a>)</span>). However, given that I found the model took 48 hours to run, I feel this description would benefit from mentioning that, and feels incomplete.</td>
 </tr>
 <tr class="odd">
 <td><strong>Code access</strong></td>
@@ -426,8 +423,8 @@ div.csl-indent {
 <tr class="even">
 <td>6.1 Computer model sharing statement</td>
 <td>Describe how someone could obtain the model described in the paper, the simulation software and any other associated software (or hardware) needed to reproduce the results. Provide, where possible, the link and DOIs to these.</td>
-<td><!----></td>
-<td><!----></td>
+<td>✅ Fully</td>
+<td><code>Research Data</code> - “The data sets generated and/or analyzed during the current study are available in the ‘triage-modelling’ repository, <a href="https://github.com/nhs-bnssg-analytics/triage-modelling" class="uri">https://github.com/nhs-bnssg-analytics/triage-modelling</a>.” <br><br><span class="citation" data-cites="wood_value_2021">Wood et al. (<a href="#ref-wood_value_2021" role="doc-biblioref">2021</a>)</span></td>
 </tr>
 </tbody>
 </table>
@@ -435,20 +432,11 @@ div.csl-indent {
 <section id="des-checklist-derived-from-ispor-sdm" class="level2">
 <h2 class="anchored" data-anchor-id="des-checklist-derived-from-ispor-sdm">DES checklist derived from ISPOR-SDM</h2>
 <p>Of the <strong>18</strong> items in the checklist:</p>
-<!-- TODO: Add counts from evaluation -->
 <ul>
-<li><strong>X</strong> were met fully (✅)</li>
-<li><strong>X</strong> were partially met (🟡)</li>
-<li><strong>X</strong> were not met (❌)</li>
-<li><strong>X</strong> were not applicable (N/A)</li>
+<li><strong>13</strong> were met fully (✅)</li>
+<li><strong>4</strong> were not met (❌)</li>
+<li><strong>1</strong> was not applicable (N/A)</li>
 </ul>
-<!-- TODO: Fill in the table. Options are ✅ Fully, 🟡 Partially, ❌ Not met, or N/A
-Handy tips:
-* 3 overlaps with STRESS-DES 2.1 Base model overview diagram and 2.2 Base model logic
-* 4 overlaps with STRESS-DES 4.2 Run length
-* 5 overlaps with STRESS-DES 1.3 Experimentation aims
-* 7 overlaps with STRESS-DES 3.1 Data source
-* 8 overlaps with STRESS-DES 3.3 Input parameters -->
 <table class="caption-top table">
 <colgroup>
 <col style="width: 20%">
@@ -474,38 +462,38 @@ Handy tips:
 <tr class="even">
 <td>1 Is the focused health-related decision problem clarified?</td>
 <td>…the decision problem under investigation was defined. DES studies included different types of decision problems, eg, those listed in previously developed taxonomies.</td>
-<td><!----></td>
-<td><!----></td>
+<td>✅ Fully</td>
+<td>Introduction/background, e.g.&nbsp;“COVID-19 is a virulent disease caused by the highly con- tagious severe acute respiratory syndrome coronavirus 2 (SARS-CoV-2). With an R0, or basic reproduction num- ber, estimated as high as 6.5, it has proliferated globally… Regarding the particularly severe pressure put on intensive care resources during a pandemic, the research interest in triage strategy intensified…”<br><br><span class="citation" data-cites="wood_value_2021">Wood et al. (<a href="#ref-wood_value_2021" role="doc-biblioref">2021</a>)</span></td>
 </tr>
 <tr class="odd">
 <td>2 Is the modeled healthcare setting/health condition clarified?</td>
 <td>…the physical context/scope (eg, a certain healthcare unit or a broader system) or disease spectrum simulated was described.</td>
-<td><!----></td>
-<td><!----></td>
+<td>✅ Fully</td>
+<td>Introduction/background - e.g.&nbsp;“estimated 15% of symptomatic UK cases requir- ing hospital admission…. significant proportion (17%) of hospitalized patients require transfer to intensive care,2 of which 41% eventually die within intensive care…”<br><br><span class="citation" data-cites="wood_value_2021">Wood et al. (<a href="#ref-wood_value_2021" role="doc-biblioref">2021</a>)</span></td>
 </tr>
 <tr class="even">
 <td>3 Is the model structure described?</td>
 <td>…the model’s conceptual structure was described in the form of either graphical or text presentation.</td>
-<td><!----></td>
-<td><!----></td>
+<td>✅ Fully</td>
+<td><code>Figure 2</code> and <code>Methods: Model</code></td>
 </tr>
 <tr class="odd">
 <td>4 Is the time horizon given?</td>
 <td>…the time period covered by the simulation was reported.</td>
-<td><!----></td>
-<td><!----></td>
+<td>✅ Fully</td>
+<td>As stated in the STRESS-DES checklist in the <code>Supplementary Materials</code> of <span class="citation" data-cites="wood_covid-19_2020">Wood et al. (<a href="#ref-wood_covid-19_2020" role="doc-biblioref">2020</a>)</span> (paper with model that Wood et al.&nbsp;2021 built upon), “Determined by the stopping condition outlined in 4.1 of this checklist.”</td>
 </tr>
 <tr class="even">
 <td>5 Are all simulated strategies/scenarios specified?</td>
 <td>…the comparators under test were described in terms of their components, corresponding variations, etc</td>
-<td><!----></td>
-<td><!----></td>
+<td>✅ Fully</td>
+<td>The scenarios are clearly visualised in <code>Figure 1</code> and described in <code>Methods: Triage Strategies</code> - e.g.&nbsp;“The first strategy accounts for a rigid cutoff, in which no patient is admit- ted to intensive care whose age is above the considered threshold (cutoff strategy). The second strategy relaxes this constraint, to the extent that…”. Then in <code>Methods: Triage Strategies</code>, “activities were simulated for a 20-bed intensive care unit… To gauge the sensitivity to different ward sizes, modeling was also performed on ward sizes ranging from 10 to 200 beds”. Then in <code>Methods: Application</code>, e.g.&nbsp;“3 demand trajectories for intensive care admission were synthetically generated with the aim of stressing the bed base…”<br><br><span class="citation" data-cites="wood_value_2021">Wood et al. (<a href="#ref-wood_value_2021" role="doc-biblioref">2021</a>)</span></td>
 </tr>
 <tr class="odd">
 <td>6 Is the target population described?</td>
 <td>…the entities simulated and their main attributes were characterized.</td>
-<td><!----></td>
-<td><!----></td>
+<td>✅ Fully</td>
+<td><code>Table 1</code></td>
 </tr>
 <tr class="even">
 <td><strong>Paramaterisation and uncertainty assessment</strong></td>
@@ -516,26 +504,26 @@ Handy tips:
 <tr class="odd">
 <td>7 Are data sources informing parameter estimations provided?</td>
 <td>…the sources of all data used to inform model inputs were reported.</td>
-<td><!----></td>
-<td><!----></td>
+<td>✅ Fully</td>
+<td>Described in <code>Methods</code>, <code>Table 3</code> and <code>Supplementary Materials</code> - e.g.&nbsp;“Patient groups are defined by the 6 age brackets provided in the weekly reports published by the Intensive Care National Audit and Research Centre (ICNARC; https://www.icnarc.org)”… “number of life-years remaining was calculated as the sex-weighted mean value for each age group using UK national life tables pub- lished by the Office for National Statistics”<br><br><span class="citation" data-cites="wood_value_2021">Wood et al. (<a href="#ref-wood_value_2021" role="doc-biblioref">2021</a>)</span></td>
 </tr>
 <tr class="even">
 <td>8 Are the parameters used to populate model frameworks specified?</td>
 <td>…all relevant parameters fed into model frameworks were disclosed.</td>
-<td><!----></td>
-<td><!----></td>
+<td>✅ Fully</td>
+<td><code>Table 1</code>, <code>Table 2</code>, <code>Table 3</code>, and other/supporting descriptions in <code>Methods</code> and <code>Supplementary Materials</code>.</td>
 </tr>
 <tr class="odd">
 <td>9 Are model uncertainties discussed?</td>
 <td>…the uncertainty surrounding parameter estimations and adopted statistical methods (eg, 95% confidence intervals or possibility distributions) were reported.</td>
-<td><!----></td>
-<td><!----></td>
+<td>✅ Fully</td>
+<td>Reports mean and confidence intervals in <code>Table 4</code>.</td>
 </tr>
 <tr class="even">
 <td>10 Are sensitivity analyses performed and reported?</td>
 <td>…the robustness of model outputs to input uncertainties was examined, for example via deterministic (based on parameters’ plausible ranges) or probabilistic (based on a priori-defined probability distributions) sensitivity analyses, or both.</td>
-<td><!----></td>
-<td><!----></td>
+<td>✅ Fully</td>
+<td>Perform sensitivity analysis varying bed capacity from 10 to 200, with results in <code>Figure 7</code>.</td>
 </tr>
 <tr class="odd">
 <td><strong>Validation</strong></td>
@@ -546,26 +534,26 @@ Handy tips:
 <tr class="even">
 <td>11 Is face validity evaluated and reported?</td>
 <td>…it was reported that the model was subjected to the examination on how well model designs correspond to the reality and intuitions. It was assumed that this type of validation should be conducted by external evaluators with no stake in the study.</td>
-<td><!----></td>
-<td><!----></td>
+<td>❌ Not met</td>
+<td>-</td>
 </tr>
 <tr class="odd">
 <td>12 Is cross validation performed and reported</td>
 <td>…comparison across similar modeling studies which deal with the same decision problem was undertaken.</td>
-<td><!----></td>
-<td><!----></td>
+<td>❌ Not met</td>
+<td>-</td>
 </tr>
 <tr class="even">
 <td>13 Is external validation performed and reported?</td>
 <td>…the modeler(s) examined how well the model’s results match the empirical data of an actual event modeled.</td>
-<td><!----></td>
-<td><!----></td>
+<td>❌ Not met</td>
+<td>-</td>
 </tr>
 <tr class="odd">
 <td>14 Is predictive validation performed or attempted?</td>
 <td>…the modeler(s) examined the consistency of a model’s predictions of a future event and the actual outcomes in the future. If this was not undertaken, it was assessed whether the reasons were discussed.</td>
-<td><!----></td>
-<td><!----></td>
+<td>N/A</td>
+<td>This is only relevant to forecasting models.</td>
 </tr>
 <tr class="even">
 <td><strong>Generalisability and stakeholder involvement</strong></td>
@@ -576,26 +564,26 @@ Handy tips:
 <tr class="odd">
 <td>15 Is the model generalizability issue discussed?</td>
 <td>…the modeler(s) discussed the potential of the resulting model for being applicable to other settings/populations (single/multiple application).</td>
-<td><!----></td>
-<td><!----></td>
+<td>✅ Fully</td>
+<td><code>Discussion: Limitations and Further Research</code>: “First, on the grounds of geography, it is important to note that the data-driven aspects of model parameterization were derived from the UK expe- rience (Table 3). Investigators seeking to meaningfully transfer the results of this study to another geography Medical Decision Making 41(4) should consider the extent to which assumptions are aligned (e.g., with respect to lengths of stay). Where sub- stantial differences remain, adapting the open-source model code to perform a set of modified simulation experiments may be a consideration.” <br><br><span class="citation" data-cites="wood_value_2021">Wood et al. (<a href="#ref-wood_value_2021" role="doc-biblioref">2021</a>)</span></td>
 </tr>
 <tr class="even">
 <td>16 Are decision makers or other stakeholders involved in modeling?</td>
 <td>…the modeler(s) reported in which part throughout the modeling process decision makers and other stakeholders (eg, subject experts) were engaged.</td>
-<td><!----></td>
-<td><!----></td>
+<td>❌ Not met</td>
+<td>No mention of this.</td>
 </tr>
 <tr class="odd">
 <td>17 Is the source of funding stated?</td>
 <td>…the sponsorship of the study was indicated.</td>
-<td><!----></td>
-<td><!----></td>
+<td>✅ Fully</td>
+<td><code>Funding Information</code>: “The authors received no financial support for the research, authorship, and/or publication of this article.”</td>
 </tr>
 <tr class="even">
 <td>18 Are model limitations discussed?</td>
 <td>…limitations of the assessed model, especially limitations of interest to decision makers, were discussed.</td>
-<td><!----></td>
-<td><!----></td>
+<td>✅ Fully</td>
+<td><code>Discussion: Limitations and Further Research</code></td>
 </tr>
 </tbody>
 </table>
@@ -607,6 +595,12 @@ Handy tips:
 <div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
 <div id="ref-monks_strengthening_2019" class="csl-entry" role="listitem">
 Monks, Thomas, Christine S. M. Currie, Bhakti Stephan Onggo, Stewart Robinson, Martin Kunc, and Simon J. E. Taylor. 2019. <span>“Strengthening the Reporting of Empirical Simulation Studies: <span>Introducing</span> the <span>STRESS</span> Guidelines.”</span> <em>Journal of Simulation</em> 13 (1): 55–67. <a href="https://doi.org/10.1080/17477778.2018.1442155">https://doi.org/10.1080/17477778.2018.1442155</a>.
+</div>
+<div id="ref-wood_covid-19_2020" class="csl-entry" role="listitem">
+Wood, Richard M., Christopher J. McWilliams, Matthew J. Thomas, Christopher P. Bourdeaux, and Christos Vasilakis. 2020. <span>“<span>COVID</span>-19 Scenario Modelling for the Mitigation of Capacity-Dependent Deaths in Intensive Care.”</span> <em>Health Care Management Science</em> 23 (3): 315–24. <a href="https://doi.org/10.1007/s10729-020-09511-7">https://doi.org/10.1007/s10729-020-09511-7</a>.
+</div>
+<div id="ref-wood_value_2021" class="csl-entry" role="listitem">
+Wood, Richard M., Adrian C. Pratt, Charlie Kenward, Christopher J. McWilliams, Ross D. Booton, Matthew J. Thomas, Christopher P. Bourdeaux, and Christos Vasilakis. 2021. <span>“The <span>Value</span> of <span>Triage</span> During <span>Periods</span> of <span>Intense</span> <span>COVID</span>-19 <span>Demand</span>: <span>Simulation</span> <span>Modeling</span> <span>Study</span>.”</span> <em>Medical Decision Making</em> 41 (4): 393–407. <a href="https://doi.org/10.1177/0272989X21994035">https://doi.org/10.1177/0272989X21994035</a>.
 </div>
 <div id="ref-zhang_reporting_2020" class="csl-entry" role="listitem">
 Zhang, Xiange, Stefan K. Lhachimi, and Wolf H. Rogowski. 2020. <span>“Reporting <span>Quality</span> of <span>Discrete</span> <span>Event</span> <span>Simulations</span> in <span>Healthcare</span>—<span>Results</span> <span>From</span> a <span>Generic</span> <span>Reporting</span> <span>Checklist</span>.”</span> <em>Value in Health</em> 23 (4): 506–14. <a href="https://doi.org/10.1016/j.jval.2020.01.005">https://doi.org/10.1016/j.jval.2020.01.005</a>.

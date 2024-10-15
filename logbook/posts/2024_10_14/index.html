@@ -202,6 +202,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <h1 class="title">Day 4</h1>
                                 <div class="quarto-categories">
                 <div class="quarto-category">reproduction</div>
+                <div class="quarto-category">evaluation</div>
               </div>
                   </div>
   </div>
@@ -244,6 +245,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#fig7.r" id="toc-fig7.r" class="nav-link" data-scroll-target="#fig7.r">12.04-12.27, 13.20-13.57: <code>fig7.R</code></a></li>
   <li><a href="#timings-for-this-item" id="toc-timings-for-this-item" class="nav-link" data-scroll-target="#timings-for-this-item">Timings for this item</a></li>
   <li><a href="#untimed-git-push" id="toc-untimed-git-push" class="nav-link" data-scroll-target="#untimed-git-push">Untimed: Git push</a></li>
+  <li><a href="#badges-evaluation" id="toc-badges-evaluation" class="nav-link" data-scroll-target="#badges-evaluation">15.32-15.44: Badges evaluation</a></li>
+  <li><a href="#stars-evaluation" id="toc-stars-evaluation" class="nav-link" data-scroll-target="#stars-evaluation">15.45-15.47: STARS evaluation</a></li>
+  <li><a href="#stress-des-evalution" id="toc-stress-des-evalution" class="nav-link" data-scroll-target="#stress-des-evalution">16.35-16.44: STRESS-DES evalution</a></li>
+  <li><a href="#timings-for-evaluation" id="toc-timings-for-evaluation" class="nav-link" data-scroll-target="#timings-for-evaluation">Timings for evaluation</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/pythonhealthdatascience/stars-reproduce-wood-2021/edit/main/logbook/posts/2024_10_14/index.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/pythonhealthdatascience/stars-reproduce-wood-2021/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
@@ -264,7 +269,7 @@ Note
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Processsed results from run, reproducing all items. Total time used: 3h 50m (9.6%)</p>
+<p>Processsed results from run, reproducing all items. Total reproduction time used: 3h 50m (9.6%). Evaluation of repository (badges, STARS, and started STRESS-DES). Evaluation time used: 23m.</p>
 </div>
 </div>
 <section id="process-results-from-full-run-on-remote-machine" class="level2">
@@ -298,7 +303,7 @@ git lfs pull</code></pre>
 </section>
 <section id="timings-for-these-items" class="level2">
 <h2 class="anchored" data-anchor-id="timings-for-these-items">Timings for these items</h2>
-<div id="7254750f" class="cell" data-execution_count="1">
+<div id="fbd490d8" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sys</span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>sys.path.append(<span class="st">'../'</span>)</span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> timings <span class="im">import</span> calculate_times</span>
@@ -363,7 +368,7 @@ dat &lt;- comb_csv[order(comb_csv$cap),]</code></pre>
 </section>
 <section id="timings-for-this-item" class="level2">
 <h2 class="anchored" data-anchor-id="timings-for-this-item">Timings for this item</h2>
-<div id="ecca357e" class="cell" data-execution_count="2">
+<div id="428ced48" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sys</span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>sys.path.append(<span class="st">'../'</span>)</span>
 <span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> timings <span class="im">import</span> calculate_times</span>
@@ -403,6 +408,47 @@ git commit --amend</code></pre>
 <pre><code>git lfs migrate import --include="outp_raw.csv.gz"
 git add .gitattributes outp_raw.csv.gz
 git commit -m "Migrate large file to Git LFS"</code></pre>
+</section>
+<section id="badges-evaluation" class="level2">
+<h2 class="anchored" data-anchor-id="badges-evaluation">15.32-15.44: Badges evaluation</h2>
+<p>Moving onto evaluation before consensus, as have done previously.</p>
+<p>License set to “no” as kindly add on request from us.</p>
+<p>For “complete” I set to “yes” as I feel it is reasonable to say this had all the material needed - the only tiny thing was that Figure 7 plot was not smoothed - but given literally everything else was provided, I think it is very reasonable to mark this as having “complete” information. They also included <code>full_results.zip</code> with the agg results from each capacity scenario.</p>
+<p>I was “uncertain” on “structure”, as it has seperate scripts for model, running model and creating plots. But it all just in one main folder. I looked back at prior evaluations for any guidance. For <a href="https://pythonhealthdatascience.github.io/stars-reproduce-shoaib-2022/logbook/posts/2024_07_03/">Shoaib 2022</a>, Tom advised to consider not if it is good enough for replication, but if it is good enough for reuse (e.g.&nbsp;does it hve hard-coded parameters). Based on this previous advice, I decided to mark this as “unmet” for structure as -</p>
+<ul>
+<li>No comments in code or documentation to guide reuse.</li>
+<li>Pretty much all parameters are hard-coded - it has been designed for use for this application, and would require a bunch of changes to allow it to be altered without hard coding.</li>
+</ul>
+<p>However, I did want to commend that it did make efforts to be adaptable to be re-run in different working directories (with <code>setwd()</code> blank at the top, and then <code>getwd()</code> used for later file paths).</p>
+</section>
+<section id="stars-evaluation" class="level2">
+<h2 class="anchored" data-anchor-id="stars-evaluation">15.45-15.47: STARS evaluation</h2>
+</section>
+<section id="stress-des-evalution" class="level2">
+<h2 class="anchored" data-anchor-id="stress-des-evalution">16.35-16.44: STRESS-DES evalution</h2>
+</section>
+<section id="timings-for-evaluation" class="level2">
+<h2 class="anchored" data-anchor-id="timings-for-evaluation">Timings for evaluation</h2>
+<div id="3f4b4dc1" class="cell" data-execution_count="3">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sys</span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>sys.path.append(<span class="st">'../'</span>)</span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> timings <span class="im">import</span> calculate_times</span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Minutes used prior to today</span></span>
+<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a>used_to_date <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Times from today</span></span>
+<span id="cb16-9"><a href="#cb16-9" aria-hidden="true" tabindex="-1"></a>times <span class="op">=</span> [</span>
+<span id="cb16-10"><a href="#cb16-10" aria-hidden="true" tabindex="-1"></a>    (<span class="st">'15.32'</span>, <span class="st">'15.44'</span>),</span>
+<span id="cb16-11"><a href="#cb16-11" aria-hidden="true" tabindex="-1"></a>    (<span class="st">'15.45'</span>, <span class="st">'15.47'</span>),</span>
+<span id="cb16-12"><a href="#cb16-12" aria-hidden="true" tabindex="-1"></a>    (<span class="st">'16.35'</span>, <span class="st">'16.44'</span>)]</span>
+<span id="cb16-13"><a href="#cb16-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-14"><a href="#cb16-14" aria-hidden="true" tabindex="-1"></a>calculate_times(used_to_date, times, limit<span class="op">=</span><span class="va">False</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Time spent today: 23m, or 0h 23m
+Total used to date: 23m, or 0h 23m</code></pre>
+</div>
+</div>
 
 
 </section>
