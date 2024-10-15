@@ -52,7 +52,7 @@ success_interactive(times_df)
 <!--TODO: **Consensus: Not reproduced / Successfully reproduced**-->
 
 ```{python}
-pd.read_csv('../reproduction/outputs/table3.csv')
+pd.read_csv('../reproduction/outputs/table4.csv')
 ```
 
 ## Figure 5

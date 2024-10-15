@@ -43,7 +43,7 @@ outp_raw<-readr::read_csv(paste0(getwd(),folder_name,"outp_raw.csv.gz")) %>%
 
 
 ####################################################################################################################
-### TABLE 3 ###
+### TABLE 4 ###
 
 outp3<-outp_agg %>%
   pivot_longer(cols=-c(scenario,policy,policy_param,crit,currency),names_to="metric",values_to="value") %>%
@@ -73,7 +73,7 @@ fn2<-function(y1,y2,y3) {
 }
 
 
-table3<-do.call("rbind",lapply(unique(outp3$scenario),function(x) {
+table4<-do.call("rbind",lapply(unique(outp3$scenario),function(x) {
   toutp3<-outp3[which(outp3$scenario==x),]
   tmp1<-as.data.frame(toutp3[which(toutp3$crit=="baseline"),])
   tmp1a<-tmp1[,1:4]
@@ -122,11 +122,11 @@ table3<-do.call("rbind",lapply(unique(outp3$scenario),function(x) {
   return(rbind(tmp1b,tmp5))
 }))
 
-table3<-table3 %>%
+table4<-table4 %>%
   arrange(scenario,policy,desc(policy_param))
 
 
-write.csv(table3,"outputs/table3.csv",row.names=FALSE)
+write.csv(table4,"outputs/table4.csv",row.names=FALSE)
 
 
 ####################################################################################################################
