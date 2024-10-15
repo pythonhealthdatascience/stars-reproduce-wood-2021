@@ -9,7 +9,7 @@ library(gridExtra)
 
 ####################################################################################################################################################################
 
-covid_simr2<-function(name,cases,groups,los,cap,policy,policy_param,crit,nreps) {
+covid_simr2<-function(name,cases,groups,los,cap,policy,policy_param,crit,nreps,testrun) {
 
 cases<-cases %>%
   select(-scenario)
@@ -151,11 +151,17 @@ simfn<-function(rep) {
   return(res)
 }
 
-cl<-makeCluster(detectCores()-1)
-clusterExport(cl=cl,varlist=c("cases","groups","los","cap","policy","policy_param"),envir=environment())
-clusterEvalQ(cl=cl,c(library(tidyr),library(dplyr)))
-RES<-parLapply(cl,1:nreps,simfn)
-stopCluster(cl)
+# Default: run with parallel processing
+if(missing(testrun)) {
+  cl<-makeCluster(detectCores()-1)
+  clusterExport(cl=cl,varlist=c("cases","groups","los","cap","policy","policy_param"),envir=environment())
+  clusterEvalQ(cl=cl,c(library(tidyr),library(dplyr)))
+  RES<-parLapply(cl,1:nreps,simfn)
+  stopCluster(cl)
+# If want to do run without parallel, then set testrun to any value
+} else {
+  RES <- lapply(1:nreps, simfn)
+}
 
 outputs_sim<-do.call("rbind",RES) %>%
   mutate(dates=min(cases$dates)+time-1) %>%

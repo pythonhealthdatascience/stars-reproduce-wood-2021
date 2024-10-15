@@ -6,32 +6,25 @@
 
 library(tidyverse)
 
-test_that("Results from single mini run are consistent", {
-  rm(list=ls())
+# Import some of the input parameters
+cases_raw <- read.csv("../../inputs/inputs-demand.csv")
+groups_raw <- read.csv("../../inputs/inputs-groups.csv")
+los <- read.csv("../../inputs/inputs-los.csv")
 
-  # Import the model code
-  source("../../scripts/covid_triage_simr.R")
-  
+# Define some of the other input parameters
+cap <- 20
+scenario <- "cyclical"
+policy <- 1
+policy_param <- NA
+crit <- c(T,T,T,T,T,T)
+nreps <- 2
+
+# Import the model code
+source("../../scripts/covid_triage_simr.R")
+
+test_that("Results from single mini run are consistent", {
   # Start timer
   start.time <- Sys.time()
-  
-  # Import some of the input parameters
-  cases_raw <- read.csv("../../inputs/inputs-demand.csv")
-  groups_raw <- read.csv("../../inputs/inputs-groups.csv")
-  los <- read.csv("../../inputs/inputs-los.csv")
-  
-  # Capacity (number of beds)
-  cap <- 20
-  
-  # Scenario (chosen from "cyclical", "lockdown" or "unmitigated")
-  scenario <- "cyclical"
-  
-  policy <- 1
-  policy_param <- NA
-  crit <- c(T,T,T,T,T,T)
-  
-  # Number of replications (reduced from 1000)
-  nreps <- 2
   
   # Create blank data frame to store results
   outp_agg<-data.frame(
@@ -50,7 +43,8 @@ test_that("Results from single mini run are consistent", {
                    policy=policy,
                    policy_param=policy_param,
                    crit=crit,
-                   nreps=nreps)
+                   nreps=nreps,
+                   testrun=TRUE)
   
   # Save result to dataframe
   outp_agg<-rbind(outp_agg,as.data.frame(res[[1]]))
