@@ -2,13 +2,13 @@
 title: "Day 4"
 author: "Amy Heather"
 date: "2024-10-14"
-categories: [reproduction]
+categories: [reproduction, evaluation]
 bibliography: ../../../quarto_site/references.bib
 ---
 
 ::: {.callout-note}
 
-Processsed results from run, reproducing all items. Total time used: 3h 50m (9.6%)
+Processsed results from run, reproducing all items. Total reproduction time used: 3h 50m (9.6%). Evaluation of repository (badges, STARS, and started STRESS-DES). Evaluation time used: 23m.
 
 :::
 
@@ -190,4 +190,42 @@ But that did not fix it. I wondered if the issue was that I hadn't also tracked 
 git lfs migrate import --include="outp_raw.csv.gz"
 git add .gitattributes outp_raw.csv.gz
 git commit -m "Migrate large file to Git LFS"
+```
+
+## 15.32-15.44: Badges evaluation
+
+Moving onto evaluation before consensus, as have done previously.
+
+License set to "no" as kindly add on request from us.
+
+For "complete" I set to "yes" as I feel it is reasonable to say this had all the material needed - the only tiny thing was that Figure 7 plot was not smoothed - but given literally everything else was provided, I think it is very reasonable to mark this as having "complete" information. They also included `full_results.zip` with the agg results from each capacity scenario.
+
+I was "uncertain" on "structure", as it has seperate scripts for model, running model and creating plots. But it all just in one main folder. I looked back at prior evaluations for any guidance. For [Shoaib 2022](https://pythonhealthdatascience.github.io/stars-reproduce-shoaib-2022/logbook/posts/2024_07_03/), Tom advised to consider not if it is good enough for replication, but if it is good enough for reuse (e.g. does it hve hard-coded parameters). Based on this previous advice, I decided to mark this as "unmet" for structure as -
+
+* No comments in code or documentation to guide reuse.
+* Pretty much all parameters are hard-coded - it has been designed for use for this application, and would require a bunch of changes to allow it to be altered without hard coding.
+
+However, I did want to commend that it did make efforts to be adaptable to be re-run in different working directories (with `setwd()` blank at the top, and then `getwd()` used for later file paths).
+
+## 15.45-15.47: STARS evaluation
+
+## 16.35-16.44: STRESS-DES evalution
+
+## Timings for evaluation
+
+```{python}
+import sys
+sys.path.append('../')
+from timings import calculate_times
+
+# Minutes used prior to today
+used_to_date = 0
+
+# Times from today
+times = [
+    ('15.32', '15.44'),
+    ('15.45', '15.47'),
+    ('16.35', '16.44')]
+
+calculate_times(used_to_date, times, limit=False)
 ```

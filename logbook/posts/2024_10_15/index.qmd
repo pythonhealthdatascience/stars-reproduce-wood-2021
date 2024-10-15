@@ -1,0 +1,38 @@
+---
+title: "Day 5"
+author: "Amy Heather"
+date: "2024-10-15"
+categories: [evaluation]
+bibliography: ../../../quarto_site/references.bib
+---
+
+::: {.callout-note}
+
+X
+
+:::
+
+## 09.30-09.37, 10.42-10.58, 11.06-11.13, 11.17-11.43: Continuing STRESS-DES evaluation
+
+## 12.03-12.22: ISPOR-SDM evaluation
+
+## Timings for evaluation
+
+```{python}
+import sys
+sys.path.append('../')
+from timings import calculate_times
+
+# Minutes used prior to today
+used_to_date = 23
+
+# Times from today
+times = [
+    ('09.30', '09.37'),
+    ('10.42', '10.58'),
+    ('11.06', '11.13'),
+    ('11.17', '11.43'),
+    ('12.03', '12.22')]
+
+calculate_times(used_to_date, times, limit=False)
+```
