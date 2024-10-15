@@ -1,3 +1,6 @@
+# Main script to run analysis
+# Total run time: 48 hours 25 minutes
+
 rm(list=ls())
 
 library(tidyverse)
