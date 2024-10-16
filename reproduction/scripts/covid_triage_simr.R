@@ -9,7 +9,16 @@ library(gridExtra)
 
 ####################################################################################################################################################################
 
-covid_simr2<-function(name,cases,groups,los,cap,policy,policy_param,crit,nreps,testrun) {
+covid_simr2<-function(name,cases,groups,los,cap,policy,policy_param,crit,nreps,testrun,scen) {
+
+# To fix run of this from testthat on Docker, add optional parameter scen that
+# can get set as scenario. If missing, it defaults to using scenario that it
+# otherwise finds in environment
+if(missing(scen)) {
+  scenario <- scenario
+} else {
+  scenario <- scen
+}
 
 cases<-cases %>%
   select(-scenario)
@@ -151,6 +160,7 @@ simfn<-function(rep) {
   return(res)
 }
 
+# To fix run of this with testthat on Docker, made parallel optional
 # Default: run with parallel processing
 if(missing(testrun)) {
   cl<-makeCluster(detectCores()-1)

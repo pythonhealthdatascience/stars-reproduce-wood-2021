@@ -2,30 +2,37 @@
 # consistent results with us. It has been modified to have a much shorter run
 # time than in the reproduction.
 
-# Run time: 1 minute 6 seconds
+# Run time: 40 seconds
 
 library(tidyverse)
+library(parallel)
+library(tidyr)
+library(dplyr)
+library(ggplot2)
+library(gridExtra)
 
 # Import some of the input parameters
 cases_raw <- read.csv("../../inputs/inputs-demand.csv")
 groups_raw <- read.csv("../../inputs/inputs-groups.csv")
 los <- read.csv("../../inputs/inputs-los.csv")
 
-# Define some of the other input parameters
-cap <- 20
-scenario <- "cyclical"
-policy <- 1
-policy_param <- NA
-crit <- c(T,T,T,T,T,T)
-nreps <- 2
-
 # Import the model code
 source("../../scripts/covid_triage_simr.R")
+
+################################
 
 test_that("Results from single mini run are consistent", {
   # Start timer
   start.time <- Sys.time()
   
+  # Define some of the other input parameters
+  cap <- 20
+  scenario <- "cyclical"
+  policy <- 1
+  policy_param <- NA
+  crit <- c(T,T,T,T,T,T)
+  nreps <- 2
+
   # Create blank data frame to store results
   outp_agg<-data.frame(
     scenario=character(),policy=numeric(),policy_param=numeric(),
@@ -44,7 +51,8 @@ test_that("Results from single mini run are consistent", {
                    policy_param=policy_param,
                    crit=crit,
                    nreps=nreps,
-                   testrun=TRUE)
+                   testrun=TRUE,
+                   scen=scenario)
   
   # Save result to dataframe
   outp_agg<-rbind(outp_agg,as.data.frame(res[[1]]))
