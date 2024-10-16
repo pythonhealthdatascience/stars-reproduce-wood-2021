@@ -2,13 +2,13 @@
 title: "Day 5"
 author: "Amy Heather"
 date: "2024-10-15"
-categories: [evaluation]
+categories: [evaluation, compendium]
 bibliography: ../../../quarto_site/references.bib
 ---
 
 ::: {.callout-note}
 
-X
+Finish evaluation (final time: 1h 15m) then started on compendium stage, troubleshooting issue in Docker related to the scripts using parallel processing and cores.
 
 :::
 
@@ -36,3 +36,26 @@ times = [
 
 calculate_times(used_to_date, times, limit=False)
 ```
+
+## Untimed: Summary report
+
+## Untimed: Reflections
+
+## Untimed: Research compendium
+
+Status at end of today:
+
+* Seperate folders for data, methods and outputs ✅
+* Tests to check if can get same results by comparing CSV files ✅
+* Run times in each .R file and clear which parts of article it is producing ✅
+* README ❌
+* Dockerfile (build, check it works). ✅
+    * Set up for one mini scenario
+    * Tested run of `fig7.R` (which worked fine), then testthat but this failed with error that `renv/activate.R` not being found
+        * Despite it being in the directory, and despite `renv::status()` appearing fine and other testthat commands working e.g. `testthat::testthat_examples()`
+        * Rebuilt Huang 2019 docker image and ran testthat, and found it ran without issue
+        * I compared the files in Wood et al. 2021 to those in Huang et al. 2019. I found that `activate.R` is the same and `.Rprofile` is the same.
+        * I removed the test, replacing it with a simple test `test_that("multiplication works", { expect_equal(2 * 2, 4) })` which worked without issue, indicating the issue lists in the `test-model.R` script. I slowly add in components of that script, finding that the error occurs when get to line `covid_simr2`.
+        * Looking into that function, I was suspicious that the issue might be that it uses parallel processing (with the `parallel` package and `makeClusters()` function). I tried replacing that section with `RES <- lapply(1:nreps, simfn)`.
+        * The code then ran, but had issue when trying to mutate later in function using scenario=scenario, as it can't find the object scenario. I found that if I defined parameters before the function, then it was happy.
+* GitHub action to push docker image to GHCR ❌

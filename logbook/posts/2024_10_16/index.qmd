@@ -1,0 +1,25 @@
+---
+title: "Day 6"
+author: "Amy Heather"
+date: "2024-10-15"
+categories: [compendium]
+bibliography: ../../../quarto_site/references.bib
+---
+
+::: {.callout-note}
+
+Finished admendments for compendium stage.
+
+:::
+
+
+## Untimed: Research compendium
+
+Tried `testthat` in docker following yesterday's fix, and found that it manages to find `scenario` if the function is copied and pasted into `test-model.R` but not when it is sourced (`source("../../scripts/covid_triage_simr.R")`). I tried an alternative approach of having an optional `scen` parameter, which fixed it. Double-checked `main.R` with one of the runs of the loop, which worked fine.
+
+With that fixed, I did the final steps of:
+
+* Setting up the GHCR action
+* Completing the reproduction README
+
+This is now ready for (a) consensus from Tom, so can then email the author, and (b) test-run, so can then archive.
