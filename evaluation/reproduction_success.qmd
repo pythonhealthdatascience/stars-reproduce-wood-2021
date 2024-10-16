@@ -4,10 +4,7 @@ echo: False
 bibliography: ../quarto_site/references.bib
 ---
 
-<!-- TODO: Remove this warning once completed assessment -->
-**Please note: This is a template page and has not yet been completed**
-
-Of the 5 items in the scope, X% (X out of X) were considered to be **successfully reproduced**.
+Of the 5 items in the scope, 100% (5 out of 5) were considered to be **successfully reproduced**.
 
 We do not have permission to upload and reuse images from the article, so please refer to the journal publication to view the figures and tables mentioned below from @wood_value_2021.
 
@@ -19,7 +16,6 @@ import pandas as pd
 from time_to_complete import process_times, success_static, success_interactive
 
 # List of time to complete each item
-# TODO: Change to actual items and times for this project
 time_list = [
     [170, 'Figure 4'],
     [170, 'Table 4'],
