@@ -202,6 +202,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <h1 class="title">Day 5</h1>
                                 <div class="quarto-categories">
                 <div class="quarto-category">evaluation</div>
+                <div class="quarto-category">compendium</div>
               </div>
                   </div>
   </div>
@@ -238,6 +239,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#continuing-stress-des-evaluation" id="toc-continuing-stress-des-evaluation" class="nav-link active" data-scroll-target="#continuing-stress-des-evaluation">09.30-09.37, 10.42-10.58, 11.06-11.13, 11.17-11.43: Continuing STRESS-DES evaluation</a></li>
   <li><a href="#ispor-sdm-evaluation" id="toc-ispor-sdm-evaluation" class="nav-link" data-scroll-target="#ispor-sdm-evaluation">12.03-12.22: ISPOR-SDM evaluation</a></li>
   <li><a href="#timings-for-evaluation" id="toc-timings-for-evaluation" class="nav-link" data-scroll-target="#timings-for-evaluation">Timings for evaluation</a></li>
+  <li><a href="#untimed-summary-report" id="toc-untimed-summary-report" class="nav-link" data-scroll-target="#untimed-summary-report">Untimed: Summary report</a></li>
+  <li><a href="#untimed-reflections" id="toc-untimed-reflections" class="nav-link" data-scroll-target="#untimed-reflections">Untimed: Reflections</a></li>
+  <li><a href="#untimed-research-compendium" id="toc-untimed-research-compendium" class="nav-link" data-scroll-target="#untimed-research-compendium">Untimed: Research compendium</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/pythonhealthdatascience/stars-reproduce-wood-2021/edit/main/logbook/posts/2024_10_15/index.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/pythonhealthdatascience/stars-reproduce-wood-2021/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
@@ -258,7 +262,7 @@ Note
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>X</p>
+<p>Finish evaluation (final time: 1h 15m) then started on compendium stage, troubleshooting issue in Docker related to the scripts using parallel processing and cores.</p>
 </div>
 </div>
 <section id="continuing-stress-des-evaluation" class="level2">
@@ -269,7 +273,7 @@ Note
 </section>
 <section id="timings-for-evaluation" class="level2">
 <h2 class="anchored" data-anchor-id="timings-for-evaluation">Timings for evaluation</h2>
-<div id="7f51ffcb" class="cell" data-execution_count="1">
+<div id="e3b43ead" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sys</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>sys.path.append(<span class="st">'../'</span>)</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> timings <span class="im">import</span> calculate_times</span>
@@ -291,6 +295,36 @@ Note
 Total used to date: 98m, or 1h 38m</code></pre>
 </div>
 </div>
+</section>
+<section id="untimed-summary-report" class="level2">
+<h2 class="anchored" data-anchor-id="untimed-summary-report">Untimed: Summary report</h2>
+</section>
+<section id="untimed-reflections" class="level2">
+<h2 class="anchored" data-anchor-id="untimed-reflections">Untimed: Reflections</h2>
+</section>
+<section id="untimed-research-compendium" class="level2">
+<h2 class="anchored" data-anchor-id="untimed-research-compendium">Untimed: Research compendium</h2>
+<p>Status at end of today:</p>
+<ul>
+<li>Seperate folders for data, methods and outputs ✅</li>
+<li>Tests to check if can get same results by comparing CSV files ✅</li>
+<li>Run times in each .R file and clear which parts of article it is producing ✅</li>
+<li>README ❌</li>
+<li>Dockerfile (build, check it works). ✅
+<ul>
+<li>Set up for one mini scenario</li>
+<li>Tested run of <code>fig7.R</code> (which worked fine), then testthat but this failed with error that <code>renv/activate.R</code> not being found
+<ul>
+<li>Despite it being in the directory, and despite <code>renv::status()</code> appearing fine and other testthat commands working e.g.&nbsp;<code>testthat::testthat_examples()</code></li>
+<li>Rebuilt Huang 2019 docker image and ran testthat, and found it ran without issue</li>
+<li>I compared the files in Wood et al.&nbsp;2021 to those in Huang et al.&nbsp;2019. I found that <code>activate.R</code> is the same and <code>.Rprofile</code> is the same.</li>
+<li>I removed the test, replacing it with a simple test <code>test_that("multiplication works", { expect_equal(2 * 2, 4) })</code> which worked without issue, indicating the issue lists in the <code>test-model.R</code> script. I slowly add in components of that script, finding that the error occurs when get to line <code>covid_simr2</code>.</li>
+<li>Looking into that function, I was suspicious that the issue might be that it uses parallel processing (with the <code>parallel</code> package and <code>makeClusters()</code> function). I tried replacing that section with <code>RES &lt;- lapply(1:nreps, simfn)</code>.</li>
+<li>The code then ran, but had issue when trying to mutate later in function using scenario=scenario, as it can’t find the object scenario. I found that if I defined parameters before the function, then it was happy.</li>
+</ul></li>
+</ul></li>
+<li>GitHub action to push docker image to GHCR ❌</li>
+</ul>
 
 
 </section>
