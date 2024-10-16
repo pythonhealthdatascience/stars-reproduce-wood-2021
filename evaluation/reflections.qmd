@@ -20,7 +20,7 @@ This page contains reflections on the facilitators and barriers to this reproduc
 
 **Provide comments**
 
-* There were no comments anywhere in the code. I didn't end up needing to dig into the code much as it ran pretty easily, but if I had needed to, this would have been more of an issue.
+* There were very few comments in the code. I didn't end up needing to dig into the code much as it ran pretty easily, but if I had needed to, this would have been more of an issue.
 
 **Minimise output file sizes if possible**
 
