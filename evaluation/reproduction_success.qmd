@@ -39,13 +39,13 @@ success_interactive(times_df)
 
 ## Figure 4
 
-<!--TODO: **Consensus: Not reproduced / Successfully reproduced**-->
+**Consensus: Successfully reproduced**
 
 ![](../reproduction/outputs/fig4.png)
 
 ## Table 4
 
-<!--TODO: **Consensus: Not reproduced / Successfully reproduced**-->
+**Consensus: Successfully reproduced**
 
 ```{python}
 pd.read_csv('../reproduction/outputs/table4.csv')
@@ -53,18 +53,18 @@ pd.read_csv('../reproduction/outputs/table4.csv')
 
 ## Figure 5
 
-<!--TODO: **Consensus: Not reproduced / Successfully reproduced**-->
+**Consensus: Successfully reproduced**
 
 ![](../reproduction/outputs/fig5.png)
 
 ## Figure 6
 
-<!--TODO: **Consensus: Not reproduced / Successfully reproduced**-->
+**Consensus: Successfully reproduced**
 
 ![](../reproduction/outputs/fig6.png)
 
 ## Figure 7
 
-<!--TODO: **Consensus: Not reproduced / Successfully reproduced**-->
+**Consensus: Successfully reproduced**
 
 ![](../reproduction/outputs/fig7.png)
