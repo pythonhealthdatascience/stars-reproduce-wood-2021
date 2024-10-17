@@ -1,0 +1,25 @@
+---
+title: "Day 7"
+author: "Amy Heather"
+date: "2024-10-17"
+categories: [reproduction]
+bibliography: ../../../quarto_site/references.bib
+---
+
+::: {.callout-note}
+
+Consensus on reproduction, emailing author, and test-run.
+
+:::
+
+## Untimed: Consensus on reproduction
+
+Tom looked over the reproduced items, and confirmed that he was happy, agreeing these were all reproduced.
+
+## Untimed: Email the author
+
+Emailed the author to inform them that we had successfully reproduced the items.
+
+## Untimed: Test-run
+
+Tom installed the renv and docker and did a test-run.
