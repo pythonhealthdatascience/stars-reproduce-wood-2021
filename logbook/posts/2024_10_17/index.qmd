@@ -23,3 +23,6 @@ Emailed the author to inform them that we had successfully reproduced the items.
 ## Untimed: Test-run
 
 Tom installed the renv and docker and did a test-run.
+
+* Renv successful.
+* Testthat worked as expected.
