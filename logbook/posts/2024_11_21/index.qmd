@@ -1,0 +1,24 @@
+---
+title: "Day 8"
+author: "Amy Heather"
+date: "2024-11-21"
+categories: [evaluation]
+---
+
+::: {.callout-note}
+
+Redid badge evaluation.
+
+:::
+
+## 11.17-11.19: Revisit evaluation
+
+Revisited and revised the badge criteria to (a) make them up-to-date, and (b) make sure they are *specific* to the descriptions from each badge. Hence, redoing evaluations for all eight studies.
+
+Notes:
+
+* reproduce - yes, as troubleshooting was all minor (getting set up with right environment and stuff) - and only require a minor tweak to a plotting function in terms of coding
+
+## Untimed: Update summary report
+
+With new badge evaluation results.
